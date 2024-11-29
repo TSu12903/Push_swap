@@ -25,6 +25,9 @@ static int	ft_check_sign_num(char *str)
 		if ((str[i] == '+' || str[i] == '-')
 			&& !(str[i + 1] >= '0' && str[i + 1] <= '9'))
 			return (0);
+		if ((str[i] >= '0' && str[i] <= '9')
+			&& !(str[i + 1] == ' ' || str[i + 1] == '\0'))
+			return (0);
 		i++;
 	}
 	return (1);
