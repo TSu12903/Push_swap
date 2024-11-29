@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -g
 NAME= push_swap
 LIBFT = libft/libft.a
 LIB = libft
-SRC= parcing.c\
+SRC= parsing.c\
 
 OBJ = $(SRC:.c=.o)
 
