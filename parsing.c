@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 		nb_count += total_word(av[i]);
 		i++;
 	}
-	str = malloc(sizeof(int) * nb_count);
+	str = calloc(nb_count, sizeof(long));
 	if (str == 0)
 		return (0);
 	i = 1;
@@ -112,6 +112,12 @@ int	main(int ac, char **av)
 	while (av[i])
 	{
 		tab = ft_split(av[i], ' ');
+		if (tab == 0)
+    		{
+    			free(str);
+			ft_printf("%s", "Error");
+    			return (0);
+    		}
 		j = 0;
 		while (tab[j])
 		{
