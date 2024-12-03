@@ -112,23 +112,17 @@ int	main(int ac, char **av)
 	while (av[i])
 	{
 		tab = ft_split(av[i], ' ');
-		if (tab == 0)
-    		{
-    			free(str);
-			ft_printf("%s", "Error");
-    			return (0);
-    		}
-		j = 0;
-		while (tab[j])
-		{
-			str[k] = ft_atoi(tab[j]);
-			free(tab[j]);
-			k++;
-			j++;
-		}
-		free(tab);
 		i++;
 	}
+	j = 0;
+	while (tab[j])
+	{
+		str[k] = ft_atoi(tab[j]);
+		free(tab[j]);
+		k++;
+		j++;
+	}
+	free(tab);
 	j = ft_verfi_twice(str, nb_count);
 	if (j == 0)
 	{
