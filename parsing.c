@@ -72,21 +72,6 @@ int	total_word(char *str)
 	return (count);
 }
 
-void	ft_free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	if (!tab)
-		return;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
 char	**ft_cut(char **tab, char **av)
 {
 	int	i;
@@ -105,22 +90,10 @@ char	**ft_cut(char **tab, char **av)
 		if (k > 1)
 		{
 			tmp_tab = ft_split(av[i], ' ');
-			if (!tmp_tab)
-            		{
-               			ft_free_tab(tab);
-               			free(tmp_tab);
-                		return NULL;
-           		}
 		}
 		else
 		{
 			tmp_tab = ft_calloc(k + 1, sizeof(char*));
-			if (!tmp_tab)
-            		{
-               			ft_free_tab(tab);
-               			free(tmp_tab);
-                		return NULL;
-           		}	
 			tmp_tab[0] = av[i];
 		}
 		while (k > 0)
@@ -156,14 +129,14 @@ int	main(int ac, char **av)
 	tab = ft_calloc(nb_count + 1, sizeof(char*));
 	if (tab == NULL)
 		return (0);
-
 	tab = ft_cut(tab, av);
 	j = 0;
 	while (tab[j])
 	{
 		ft_printf("%s\n", tab[j]);
+		free(tab[j]);
 		j++;
 	}
-	ft_free_tab(tab);
+	free(tab);
 	return (0);
 }
