@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcing.c                                          :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/11/27 16:49:56 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/03 15:39:43 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ft_check_sign_num(char *str)
 {
@@ -64,77 +63,80 @@ int	total_word(char *str)
 	count = 0;
 	while (str[i])
 	{
-		while (str[i] == ' ' || str[i] == '+' || str[i] == '-') 
+		while (str[i] == ' ' || str[i] == '+' || str[i] == '-')
 			i++;
 		while (str[i] >= '0' && str[i] <= '9')
-			i++; 
+			i++;
 		count++;
 	}
 	return (count);
 }
 
-int	main(int ac, char **av)
+char	**ft_cut(char **tab, char **av)
 {
-	int		i;
-	int		*str;
-	int		j;
-	char		**tab;
-	int		nb_count;
-	int		k;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	char	**tmp_tab;
 
-	if (ac == 1)
-		return (0);
-	i = 1;
 	j = 0;
+	i = 1;
+	k = 0;
 	while (av[i])
 	{
-		j = ft_check_sign_num(av[i]);
-		
-		if (j == 0)
+		k = total_word(av[i]);
+		l = 0;
+		if (k > 1)
+			tmp_tab = ft_split(av[i], ' ');
+		else
 		{
-			ft_printf("%s", "Error");
-			return (0);
+			tmp_tab = ft_calloc(k , sizeof(char*));
+			if (tmp_tab == NULL)
+				return (0);
+			tmp_tab[0] = av[i];
+		}
+		while (k > 0)
+		{
+			tab[j] = tmp_tab[l];
+			j++;
+			l++;
+			k--;
 		}
 		i++;
 	}
+	return (tab);
+}
+
+int	main(int ac, char **av)
+{
+	int	i;
+	int	j;
+	int	nb_count;
+	char	**tab;
+//	int	*tab1;
+
 	i = 1;
+	if (ac == 1)
+		return (0);
 	nb_count = 0;
 	while (av[i])
 	{
 		nb_count += total_word(av[i]);
 		i++;
 	}
-	str = malloc(sizeof(int) * nb_count);
-	if (str == 0)
+	tab = ft_calloc(nb_count + 1, sizeof(char*));
+	if (tab == NULL)
 		return (0);
-	i = 1;
-	k = 0;
-	while (av[i])
-	{
-		tab = ft_split(av[i], ' ');
-		j = 0;
-		while (tab[j])
-		{
-			str[k] = ft_atoi(tab[j]);
-			free(tab[j]);
-			k++;
-			j++;
-		}
-		free(tab);
-		i++;
-	}
-	j = ft_verfi_twice(str, nb_count);
-	if (j == 0)
-	{
-		ft_printf("%s", "Error");
-		free(str);
-		return (0);
-	}
+
+	tab = ft_cut(tab, av);
 	j = 0;
-	while (j <= nb_count - 1)
+	while (tab[j])
 	{
-		ft_printf("%d\n", str[j]);
+		ft_printf("%s\n", tab[j]);
+		free(tab[j]);
 		j++;
 	}
-	free(str);
+	free(tab);
+	return (0);
 }
