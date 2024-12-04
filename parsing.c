@@ -69,7 +69,7 @@ int	total_word(char *str)
 			i++;
 		count++;
 	}
-	return (count);
+	return (count);ft_check_sign_num
 }
 
 char	**ft_cut(char **tab, char **av)
@@ -93,17 +93,16 @@ char	**ft_cut(char **tab, char **av)
 		}
 		else
 		{
-			tmp_tab = ft_calloc(k + 1, sizeof(char*));
-			tmp_tab[0] = av[i];
+			tab[j] = av[i];
+			j++;
 		}
-		while (k > 0)
+		while (k > 1)
 		{
 			tab[j] = tmp_tab[l];
 			j++;
 			l++;
 			k--;
 		}
-		free(tmp_tab);
 		i++;
 	}
 	return (tab);
@@ -134,7 +133,6 @@ int	main(int ac, char **av)
 	while (tab[j])
 	{
 		ft_printf("%s\n", tab[j]);
-		free(tab[j]);
 		j++;
 	}
 	free(tab);
