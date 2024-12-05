@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 #include <stdio.h>
 int	ft_check_sign_num(char *str)
@@ -77,9 +78,11 @@ int	total_word(char *str)
 	{
 		while (str[i] == ' ' || str[i] == '+' || str[i] == '-')
 			i++;
+		if (str[i] >= '0' && str[i] <= '9')
+			count++;
 		while (str[i] >= '0' && str[i] <= '9')
 			i++;
-		count++;
+		
 	}
 	return (count);
 }
@@ -147,6 +150,7 @@ int	main(int ac, char **av)
 		free(tab[j]);
 		j++;
 	}
+	free(tab);
 	i = 0;
 	j = 0;
 	i = ft_verfi_twice(tab1, nb_count);
@@ -160,6 +164,5 @@ int	main(int ac, char **av)
 	}
 		
 	free(tab1);
-	free(tab);
 	return (0);
 }
