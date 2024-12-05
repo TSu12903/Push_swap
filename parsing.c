@@ -13,6 +13,20 @@
 
 #include "push_swap.h"
 #include <stdio.h>
+
+void	ft_free(char **str)
+{
+	int i;
+	
+	i = 0;
+	while(str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
 int	ft_check_sign_num(char *str)
 {
 	int	i;
@@ -102,15 +116,10 @@ char	**ft_cut(char **tab, char **av)
 	{
 		k = total_word(av[i]);
 		l = 0;
-		if (k > 1)
-		{
-			tmp_tab = ft_split(av[i], ' ');
-			while (k-- > 0)
-				tab[j++] = tmp_tab[l++];
-			free(tmp_tab);
-		}
-		else
-			tab[j++] = av[i];
+		tmp_tab = ft_split(av[i], ' ');
+		while (k-- > 0)
+			tab[j++] = tmp_tab[l++];
+		free(tmp_tab);
 		i++;
 	}
 	return (tab);
@@ -147,10 +156,9 @@ int	main(int ac, char **av)
 	while (tab[j])
 	{
 		tab1[j] = ft_atoi(tab[j]);
-		free(tab[j]);
 		j++;
 	}
-	free(tab);
+	ft_free(tab);
 	i = 0;
 	j = 0;
 	i = ft_verfi_twice(tab1, nb_count);
