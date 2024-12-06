@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:22 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 16:01:42 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:56:17 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,10 @@ void	ft_free(char **str)
 		i++;
 	}
 	free(str);
+}
+
+long *ft_one_free(long *tab1)
+{
+    free(tab1);
+	return (0);
 }
