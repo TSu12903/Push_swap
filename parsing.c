@@ -49,20 +49,31 @@ int	ft_check_sign_num(char *str)
 	return (i);
 }
 
-int	ft_verfi_twice(int *str, int num)
+int	ft_verfi_twice(long *str, int num)
 {
 	int	j;
 	int	i;
 
 	i = 0;
+
+	if (str[i] > 2147483647 || str[i] < -2147483648)
+	{
+		ft_printf("%s\n", "Error");
+		return (0);
+	}
 	while (i < num)
 	{
-		j = 1;
+		j = 0;
 		while (j < i)
 		{
+			if (str[i] > 2147483647 || str[i] < -2147483648)
+			{
+				ft_printf("%s\n", "Error");
+				return (0);
+			}
 			if (str[i] == str[j])
 			{
-				ft_printf("%s", "Error");
+				ft_printf("%s\n", "Error");
 				return (0);
 			}
 			j++;
@@ -94,10 +105,7 @@ int	total_word(char *str)
 				i++;
 		}
 		else
-		{
-			ft_printf("%s", "Error");
 			return (0);
-		}
 		j = 0;
 	}
 	return (count);
@@ -133,18 +141,23 @@ int	main(int ac, char **av)
 	int	j;
 	int	nb_count;
 	char	**tab;
-	int	*tab1;
+	long	*tab1;
 
 	i = 1;
 	if (ac == 1)
 		return (0);
 	nb_count = 0;
+	j = 0;
 	while (av[i])
 	{
-		nb_count += total_word(av[i]);
+		j = total_word(av[i]);
 		i++;
-		if (nb_count == 0)
+		if (j == 0)
+		{
+			ft_printf("%s\n", "Error");
 			return (0);
+		}
+		nb_count += j;
 	}
 	tab = ft_calloc(nb_count + 1, sizeof(char*));
 	if (tab == NULL)
@@ -156,7 +169,7 @@ int	main(int ac, char **av)
 		return (0);
 	while (tab[j])
 	{
-		tab1[j] = ft_atoi(tab[j]);
+		tab1[j] = ft_atol(tab[j]);
 		j++;
 	}
 	ft_free(tab);
@@ -170,8 +183,7 @@ int	main(int ac, char **av)
 			ft_printf("%d\n", tab1[j]);
 			j++;
 		}
-	}
-		
+	}	
 	free(tab1);
 	return (0);
 }
