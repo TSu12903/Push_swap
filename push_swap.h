@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 16:56:14 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/06 17:10:11 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "libft/libft.h"
 
 void	ft_free(char **str);
-int ft_verfi_twice(long *str, int num);
+int		ft_verfi_twice(long *str, int num);
 long	*ft_parsing(char **av);
-long    *ft_one_free(long *tab1);
+long	*ft_one_free(long *tab1);
 
 #endif

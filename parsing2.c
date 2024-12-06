@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:54:44 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 16:11:02 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/06 17:12:17 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_verfi_twice(long *str, int num)
 				ft_printf("%s\n", "Error");
 				return (0);
 			}
-            j++;
+			j++;
 		}
-        i++;
+		i++;
 	}
 	return (i);
 }

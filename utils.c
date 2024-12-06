@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:22 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 16:56:17 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/06 17:11:12 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_free(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
@@ -25,8 +25,8 @@ void	ft_free(char **str)
 	free(str);
 }
 
-long *ft_one_free(long *tab1)
+long	*ft_one_free(long *tab1)
 {
-    free(tab1);
+	free(tab1);
 	return (0);
 }
