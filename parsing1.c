@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcing.c                                          :+:      :+:    :+:   */
+/*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/11/27 16:49:56 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:25:02 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-void	ft_free(char **str)
-{
-	int i;
-	
-	i = 0;
-	while(str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
 
 int	ft_check_sign_num(char *str)
 {
@@ -44,40 +30,6 @@ int	ft_check_sign_num(char *str)
 			&& !(str[i + 1] == ' ' || str[i + 1] == '\0'
 				|| (str[i] >= '0' && str[i] <= '9')))
 			return (0);
-		i++;
-	}
-	return (i);
-}
-
-int	ft_verfi_twice(long *str, int num)
-{
-	int	j;
-	int	i;
-
-	i = 0;
-
-	if (str[i] > 2147483647 || str[i] < -2147483648)
-	{
-		ft_printf("%s\n", "Error");
-		return (0);
-	}
-	while (i < num)
-	{
-		j = 0;
-		while (j < i)
-		{
-			if (str[i] > 2147483647 || str[i] < -2147483648)
-			{
-				ft_printf("%s\n", "Error");
-				return (0);
-			}
-			if (str[i] == str[j])
-			{
-				ft_printf("%s\n", "Error");
-				return (0);
-			}
-			j++;
-		}
 		i++;
 	}
 	return (i);
@@ -135,7 +87,7 @@ char	**ft_cut(char **tab, char **av)
 	return (tab);
 }
 
-int	main(int ac, char **av)
+long	*ft_parsing(char **av)
 {
 	int	i;
 	int	j;
@@ -144,8 +96,6 @@ int	main(int ac, char **av)
 	long	*tab1;
 
 	i = 1;
-	if (ac == 1)
-		return (0);
 	nb_count = 0;
 	j = 0;
 	while (av[i])
@@ -173,17 +123,12 @@ int	main(int ac, char **av)
 		j++;
 	}
 	ft_free(tab);
-	i = 0;
 	j = 0;
 	i = ft_verfi_twice(tab1, nb_count);
-	if (i != 0)
+	if (i == 0)
 	{
-		while (j < nb_count)
-		{
-			ft_printf("%d\n", tab1[j]);
-			j++;
-		}
-	}	
-	free(tab1);
-	return (0);
+		free(tab1);
+		return (0);
+	}
+	return (tab1);
 }

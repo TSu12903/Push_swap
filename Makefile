@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcybak <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/10/08 10:12:40 by tcybak           ###   ########.fr        #
+#    Updated: 2024/12/06 16:21:56 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -g
 NAME= push_swap
 LIBFT = libft/libft.a
 LIB = libft
-SRC= parsing.c\
+SRC= parsing1.c parsing2.c utils.c main.c\
 
 OBJ = $(SRC:.c=.o)
 
