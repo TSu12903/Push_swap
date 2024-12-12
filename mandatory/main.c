@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/12 13:26:44 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/12 15:59:05 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	main(int ac, char **av)
 {
 	long	*stack_a;
 	long	*stack_b;
-	int		i;
+	int		i ;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac == 1)
 		return (0);
 	stack_a = ft_parsing(av);
-	stack_a = ft_swap_a(stack_a);
+	ft_swap_a(stack_a, 1);
 	///
 	i = 0;
 	if (stack_a != 0)

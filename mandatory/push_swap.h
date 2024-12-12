@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/12 13:21:44 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/12 15:58:55 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ long	*ft_parsing(char **av);
 ///				Order.c				///
 //////////////////////////////////////
 
-long    *ft_swap_a(long *tab);
-
+void    ft_swap_a(long *tab, int i);
+void    ft_swap_b(long *tab, int i);
+void    ft_swap_ss(long *tab_a, long *tab_b);
 
 
 #endif

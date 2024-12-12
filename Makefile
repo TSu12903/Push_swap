@@ -6,7 +6,7 @@
 #    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/06 16:21:56 by tcybak           ###   ########.fr        #
+#    Updated: 2024/12/12 15:55:41 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT = libft/libft.a
 LIB = libft
 SRC=  	mandatory/parsing/parsing1.c \
 	mandatory/parsing/parsing2.c \
-	mandatory/order/order.c \
+	mandatory/order/order_s_p.c \
 	mandatory/main.c \
 	mandatory/utils/utils.c
 
