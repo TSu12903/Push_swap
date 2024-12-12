@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 17:10:11 by tcybak           ###   ########.fr       */
+/*   Created: 2024/12/06 15:54:44 by tcybak            #+#    #+#             */
+/*   Updated: 2024/12/06 17:12:17 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include "libft/libft.h"
+int	ft_verfi_twice(long *str, int num)
+{
+	int	j;
+	int	i;
 
-void	ft_free(char **str);
-int		ft_verfi_twice(long *str, int num);
-long	*ft_parsing(char **av);
-long	*ft_one_free(long *tab1);
-
-#endif
+	i = 0;
+	if (str[i] > 2147483647 || str[i] < -2147483648)
+	{
+		ft_printf("%s\n", "Error");
+		return (0);
+	}
+	while (i < num)
+	{
+		j = 0;
+		while (j < i)
+		{
+			if (str[i] > 2147483647 || str[i] < -2147483648 || str[i] == str[j])
+			{
+				ft_printf("%s\n", "Error");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (i);
+}

@@ -12,10 +12,14 @@
 
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra -g
-NAME= push_swap
+NAME = push_swap
 LIBFT = libft/libft.a
 LIB = libft
-SRC= parsing1.c parsing2.c utils.c main.c\
+SRC=  	mandatory/parsing/parsing1.c \
+	mandatory/parsing/parsing2.c \
+	mandatory/order/order.c \
+	mandatory/main.c \
+	mandatory/utils/utils.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -27,6 +31,9 @@ $(NAME): $(OBJ) $(LIBFT)
 
 $(LIBFT):
 	$(MAKE) -C $(LIB)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
 	rm -f $(OBJ)

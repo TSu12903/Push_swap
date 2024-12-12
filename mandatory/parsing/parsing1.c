@@ -6,11 +6,11 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 17:45:26 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/12 11:08:59 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_check_sign_num(char *str)
 {
@@ -113,7 +113,7 @@ long	*ft_parsing(char **av)
 	int		nb_count;
 	char	**tab;
 	long	*tab1;
-
+	
 	nb_count = ft_parsing_verif(av);
 	if (nb_count == 0)
 		return (0);
