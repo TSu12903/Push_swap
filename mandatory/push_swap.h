@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/12 15:58:55 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:07:19 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+
+typedef struct s_stack
+{
+    long    *stack_a;
+    long    *stack_b;
+    int     size_a;
+    int     size_b;
+}           t_stack;
+typedef struct s_init
+{
+    int     i;
+    int     j;
+}           t_init;
 
 ////////////////////////////////////////
 ///				Utils.c				///
