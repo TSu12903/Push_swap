@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   order_s_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tsugeku <tsugeku@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:54:02 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/13 15:57:00 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/15 00:41:58 by tsugeku          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_swap_a(t_stack *stack, t_init *init)
 
 void	ft_swap_b(t_stack *stack, t_init *init)
 {
-	long    swap;
+	long	swap;
 
 	stack->size_b = ft_strlen_long(stack->stack_b);
 	if (stack->size_b < 1)
@@ -45,7 +45,8 @@ void	ft_swap_b(t_stack *stack, t_init *init)
 			ft_printf("sa\n");
 	}
 }
-void	ft_swap_ss(t_stack *stack,t_init *init)
+
+void	ft_swap_ss(t_stack *stack, t_init *init)
 {
 	init->i = 0;
 	ft_swap_a(stack, init);
@@ -73,15 +74,15 @@ void	ft_push_b(t_stack *stack, t_init *init)
 	init->j = 1;
 	while (init->j <= stack->size_a)
 	{
-		stack->stack_a[init->i]= stack->stack_a[init->j];
+		stack->stack_a[init->i] = stack->stack_a[init->j];
 		init->j++;
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
 }
-void    ft_push_a(t_stack *stack, t_init *init)
-{
 
+void	ft_push_a(t_stack *stack, t_init *init)
+{
 	init->i = 0;
 	init->j = 1;
 	stack->size_b = ft_strlen_long(stack->stack_b) - 1;
@@ -91,7 +92,7 @@ void    ft_push_a(t_stack *stack, t_init *init)
 	while (init->j < stack->size_a)
 	{
 		init->k = stack->stack_a[init->i];
-		stack->stack_a[init->i]= stack->stack_a[init->j];
+		stack->stack_a[init->i] = stack->stack_a[init->j];
 		stack->stack_a[init->j] = init->k;
 		init->j++;
 	}
@@ -100,10 +101,9 @@ void    ft_push_a(t_stack *stack, t_init *init)
 	init->j = 1;
 	while (init->j <= stack->size_b)
 	{
-		stack->stack_b[init->i]= stack->stack_b[init->j];
+		stack->stack_b[init->i] = stack->stack_b[init->j];
 		init->j++;
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
 }
-
