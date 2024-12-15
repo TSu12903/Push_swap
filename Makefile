@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
+#    By: tsugeku <tsugeku@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/12 15:55:41 by tcybak           ###   ########.fr        #
+#    Updated: 2024/12/15 01:13:20 by tsugeku          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIB = libft
 SRC=  	mandatory/parsing/parsing1.c \
 	mandatory/parsing/parsing2.c \
 	mandatory/order/order_s_p.c \
+	mandatory/order/order_r.c \
 	mandatory/main.c \
 	mandatory/utils/utils.c
 
