@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/15 00:32:39 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 13:23:05 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,35 @@ int	ft_check_sign_num(char *str)
 	return (i);
 }
 
-int	total_word(char *str)
+int	total_word(char *str, t_init init)
 {
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (str[i])
+	while (str[init.i])
 	{
-		j = ft_check_sign_num(str);
-		if (j != 0)
+		init.j = ft_check_sign_num(str);
+		if (init.j != 0)
 		{
-			while (str[i] == ' ' || str[i] == '+' || str[i] == '-')
-				i++;
-			if (str[i] >= '0' && str[i] <= '9')
-				count++;
-			while (str[i] >= '0' && str[i] <= '9')
-				i++;
+			init.k = 0;
+			while (str[init.i] == ' ' || str[init.i] == '+'
+				|| str[init.i] == '-')
+				init.i++;
+			if (str[init.i] >= '0' && str[init.i] <= '9')
+				init.count++;
+			while (str[init.i] >= '0' && str[init.i] <= '9')
+			{
+				init.i++;
+				init.k++;
+			}
+			if (init.k > 11)
+				return (0);
 		}
 		else
 			return (0);
-		j = 0;
+		init.j = 0;
 	}
-	return (count);
+	return (init.count);
 }
 
-char	**ft_cut(char **tab, char **av)
+char	**ft_cut(char **tab, char **av, t_init init)
 {
 	int		i;
 	int		j;
@@ -75,7 +76,7 @@ char	**ft_cut(char **tab, char **av)
 	k = 0;
 	while (av[i])
 	{
-		k = total_word(av[i]);
+		k = total_word(av[i], init);
 		l = 0;
 		tmp_tab = ft_split(av[i], ' ');
 		while (k-- > 0)
@@ -86,7 +87,7 @@ char	**ft_cut(char **tab, char **av)
 	return (tab);
 }
 
-int	ft_parsing_verif(char **av)
+int	ft_parsing_verif(char **av, t_init init)
 {
 	int	i;
 	int	j;
@@ -96,7 +97,7 @@ int	ft_parsing_verif(char **av)
 	nb_count = 0;
 	while (av[++i])
 	{
-		j = total_word(av[i]);
+		j = total_word(av[i], init);
 		if (j == 0)
 		{
 			ft_printf("%s\n", "Error");
@@ -107,20 +108,20 @@ int	ft_parsing_verif(char **av)
 	return (nb_count);
 }
 
-long	*ft_parsing(char **av)
+long	*ft_parsing(char **av, t_init init)
 {
 	int		j;
 	int		nb_count;
 	char	**tab;
 	long	*tab1;
-	
-	nb_count = ft_parsing_verif(av);
+
+	nb_count = ft_parsing_verif(av, init);
 	if (nb_count == 0)
 		return (0);
 	tab = ft_calloc(nb_count + 1, sizeof(char *));
 	if (tab == NULL)
 		return (0);
-	tab = ft_cut(tab, av);
+	tab = ft_cut(tab, av, init);
 	tab1 = ft_calloc(nb_count + 1, sizeof(long));
 	if (tab1 == NULL)
 		return (0);

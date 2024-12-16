@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsugeku <tsugeku@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/15 01:12:59 by tsugeku          ###   ########.fr       */
+/*   Updated: 2024/12/16 13:18:59 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ int	main(int ac, char **av)
 		return (0);
 	t_stack	*stack;
 	t_init	*init;
-	stack = malloc(sizeof(t_stack));
+	
 	init = malloc(sizeof(t_init));
-	init->i = 1;
-	stack->stack_a = ft_parsing(av);
+	if (init == 0)
+		return (0);
+	stack = malloc(sizeof(t_stack));
+	if (stack == 0)
+		return (0);
+	ft_init(init);
+	stack->stack_a = ft_parsing(av, *init);
 	if (stack->stack_a)
 		stack->stack_b = ft_calloc(ft_strlen_long(stack->stack_a), sizeof(long));
-	ft_push_b(stack, init);
-	ft_push_b(stack, init);
-	ft_push_b(stack, init);
-	ft_push_b(stack, init);
-	ft_push_b(stack, init);
-	ft_push_b(stack, init);
-	ft_rotate_b(stack, init);
 	init->i = 0;
 	if (stack->stack_a)
 	{

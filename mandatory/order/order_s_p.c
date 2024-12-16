@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   order_s_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsugeku <tsugeku@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:54:02 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/15 00:41:58 by tsugeku          ###   ########.fr       */
+/*   Updated: 2024/12/16 12:57:08 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_swap_a(t_stack *stack, t_init *init)
 		swap = stack->stack_a[0];
 		stack->stack_a[0] = stack->stack_a[1];
 		stack->stack_a[1] = swap;
-		if (init->i != 0)
+		if (init->print != 0)
 			ft_printf("sa\n");
 	}
 }
@@ -41,16 +41,15 @@ void	ft_swap_b(t_stack *stack, t_init *init)
 		swap = stack->stack_b[0];
 		stack->stack_b[0] = stack->stack_b[1];
 		stack->stack_b[1] = swap;
-		if (init->i != 0)
+		if (init->print != 0)
 			ft_printf("sa\n");
 	}
 }
 
-void	ft_swap_ss(t_stack *stack, t_init *init)
+void	ft_swap_ss(t_stack *stack)
 {
-	init->i = 0;
-	ft_swap_a(stack, init);
-	ft_swap_b(stack, init);
+	ft_swap_a(stack, 0);
+	ft_swap_b(stack, 0);
 	ft_printf("ss\n");
 }
 
@@ -79,6 +78,7 @@ void	ft_push_b(t_stack *stack, t_init *init)
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
+	ft_printf("pb\n");
 }
 
 void	ft_push_a(t_stack *stack, t_init *init)
@@ -106,4 +106,5 @@ void	ft_push_a(t_stack *stack, t_init *init)
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
+	ft_printf("pb\n");
 }

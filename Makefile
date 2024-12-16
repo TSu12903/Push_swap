@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tsugeku <tsugeku@student.42.fr>            +#+  +:+       +#+         #
+#    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/15 01:13:20 by tsugeku          ###   ########.fr        #
+#    Updated: 2024/12/16 11:37:42 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRC=  	mandatory/parsing/parsing1.c \
 	mandatory/order/order_s_p.c \
 	mandatory/order/order_r.c \
 	mandatory/main.c \
-	mandatory/utils/utils.c
+	mandatory/utils/utils.c \
+	mandatory/order/order_rrr.c \
+	mandatory/init/init.c
 
 OBJ = $(SRC:.c=.o)
 
