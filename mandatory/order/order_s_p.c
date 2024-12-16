@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:54:02 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 14:13:41 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:11:37 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_swap_a(t_stack *stack, t_init *init)
 {
 	long	swap;
 
-	stack->size_a = ft_strlen_long(stack->stack_a);
 	if (stack->size_a <= 1)
 		return ;
 	else
@@ -33,7 +32,6 @@ void	ft_swap_b(t_stack *stack, t_init *init)
 {
 	long	swap;
 
-	stack->size_b = ft_strlen_long(stack->stack_b);
 	if (stack->size_b < 1)
 		return ;
 	else
@@ -57,8 +55,8 @@ void	ft_push_b(t_stack *stack, t_init *init)
 {
 	init->i = 0;
 	init->j = 1;
-	stack->size_b = ft_strlen_long(stack->stack_b) + 1;
-	stack->size_a = ft_strlen_long(stack->stack_a) - 1;
+	stack->size_b += 1;
+	stack->size_a -= 1;
 	if (stack->stack_a == 0)
 		return ;
 	while (init->j < stack->size_b)
@@ -85,8 +83,8 @@ void	ft_push_a(t_stack *stack, t_init *init)
 {
 	init->i = 0;
 	init->j = 1;
-	stack->size_b = ft_strlen_long(stack->stack_b) - 1;
-	stack->size_a = ft_strlen_long(stack->stack_a) + 1;
+	stack->size_b -= 1;
+	stack->size_a += 1;
 	if (stack->stack_b == 0)
 		return ;
 	while (init->j < stack->size_a)

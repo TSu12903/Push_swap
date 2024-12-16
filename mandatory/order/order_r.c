@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:47:30 by tsugeku           #+#    #+#             */
-/*   Updated: 2024/12/16 12:59:25 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:10:25 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_rotate_a(t_stack *stack, t_init init)
 	init.k = stack->stack_a[0];
 	init.i = 1;
 	init.j = 0;
-	stack->size_a = ft_strlen_long(stack->stack_a);
 	while (init.i <= stack->size_a - 1)
 	{
 		stack->stack_a[init.j] = stack->stack_a[init.i];
@@ -34,7 +33,6 @@ void	ft_rotate_b(t_stack *stack, t_init init)
 	init.k = stack->stack_b[0];
 	init.i = 1;
 	init.j = 0;
-	stack->size_b = ft_strlen_long(stack->stack_b);
 	while (init.i <= stack->size_b - 1)
 	{
 		stack->stack_b[init.j] = stack->stack_b[init.i];
@@ -57,7 +55,6 @@ void	ft_reverse_rotate_a(t_stack *stack, t_init init)
 {
 	init.i = 0;
 	init.j = 1;
-	stack->size_a = ft_strlen_long(stack->stack_a);
 	if (stack->stack_a == 0)
 		return ;
 	init.l = stack->stack_a[stack->size_a - 1];
@@ -76,7 +73,6 @@ void	ft_reverse_rotate_b(t_stack *stack, t_init init)
 {
 	init.i = 0;
 	init.j = 1;
-	stack->size_b = ft_strlen_long(stack->stack_b);
 	if (stack->stack_b == 0)
 		return ;
 	init.l = stack->stack_b[stack->size_b - 1];

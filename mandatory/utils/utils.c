@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:22 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 14:28:16 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:04:17 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int	ft_strlen_long(long	*tab)
 	int	i;
 
 	i = 0;
-	while (tab[i])
+	while (tab[i] != -1)
 		i++;
 	return(i);
+	ft_printf("--------------%d", i);
 }
 
 // int	ft_compare(t_stack *stack)

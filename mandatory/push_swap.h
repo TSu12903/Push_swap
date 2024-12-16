@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 16:13:45 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:34:41 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_init
 	int	l;
 	int	print;
 	int count;
-	int	nb_count;
+	int nb_count_size;
 }		t_init;
 
 ////////////////////////////////////////

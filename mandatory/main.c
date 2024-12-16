@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 17:31:39 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:42:45 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ int	main(int ac, char **av)
 	ft_init(init);
 	stack->stack_a = ft_parsing(av, init);
 	if (stack->stack_a)
-		stack->stack_b = ft_calloc(ft_strlen_long(stack->stack_a), sizeof(long));
-	//ft_algo(stack, init);
+		stack->stack_b = ft_calloc(init->nb_count_size, sizeof(long));
+	stack->size_a = init->nb_count_size;
+	stack->size_b = 0;
 	init->i = 0;
 	if (stack->stack_a)
 	{
-		while (stack->stack_a[init->i])
+		while (stack->stack_a[init->i] < stack->size_a)
 		{
 			ft_printf("stack_a--%d\n", stack->stack_a[init->i]);
 			init->i++;
@@ -43,7 +44,7 @@ int	main(int ac, char **av)
 	init->i = 0;
 	if (stack->size_b)
 	{
-		while (stack->stack_b[init->i])
+		while (stack->stack_b[init->i] < stack->size_b)
 		{
 			ft_printf("stack_b++%d\n", stack->stack_b[init->i]);
 			init->i++;
