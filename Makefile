@@ -6,25 +6,26 @@
 #    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/16 16:13:12 by tcybak           ###   ########.fr        #
+#    Updated: 2024/12/16 17:14:29 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+SRCDIR	:= ./mandatory
 OBJDIR := ./obj
 CC := cc
 CFLAGS := -Wall -Werror -Wextra -g
 NAME := push_swap
 LIBFT := libft/libft.a
 LIB := libft
-SRC := mandatory/parsing/parsing1.c \
-       mandatory/parsing/parsing2.c \
-       mandatory/order/order_s_p.c \
-       mandatory/order/order_r.c \
-       mandatory/main.c \
-       mandatory/utils/utils.c \
-       mandatory/order/order_rrr.c \
-       mandatory/init/init.c \
-       mandatory/algo/algo.c
+SRC := parsing/parsing1.c \
+	   parsing/parsing2.c \
+	   order/order_s_p.c \
+	   order/order_r.c \
+	   main.c \
+	   utils/utils.c \
+	   order/order_rrr.c \
+	   init/init.c \
+	   algo/algo.c
 
 OBJ := $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
@@ -36,8 +37,8 @@ $(NAME): $(OBJ) $(LIBFT)
 $(LIBFT):
 	$(MAKE) -C $(LIB)
 
-$(OBJDIR)/%.o: %.c
-	@mkdir -p $(dir $@) # Automatically create subdirectories
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
