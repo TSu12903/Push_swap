@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 13:23:05 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:03:24 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,28 +108,27 @@ int	ft_parsing_verif(char **av, t_init init)
 	return (nb_count);
 }
 
-long	*ft_parsing(char **av, t_init init)
+long	*ft_parsing(char **av, t_init *init)
 {
 	int		j;
-	int		nb_count;
 	char	**tab;
 	long	*tab1;
 
-	nb_count = ft_parsing_verif(av, init);
-	if (nb_count == 0)
+	init->nb_count = ft_parsing_verif(av, *init);
+	if (init->nb_count == 0)
 		return (0);
-	tab = ft_calloc(nb_count + 1, sizeof(char *));
+	tab = ft_calloc(init->nb_count + 1, sizeof(char *));
 	if (tab == NULL)
 		return (0);
-	tab = ft_cut(tab, av, init);
-	tab1 = ft_calloc(nb_count + 1, sizeof(long));
+	tab = ft_cut(tab, av, *init);
+	tab1 = ft_calloc(init->nb_count + 1, sizeof(long));
 	if (tab1 == NULL)
 		return (0);
 	j = -1;
 	while (tab[++j])
 		tab1[j] = ft_atol(tab[j]);
 	ft_free(tab);
-	j = ft_verfi_twice(tab1, nb_count);
+	j = ft_verfi_twice(tab1, init->nb_count);
 	if (j == 0)
 		return (ft_one_free(tab1));
 	return (tab1);

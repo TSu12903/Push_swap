@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 14:11:43 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:13:45 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_init
 	int	l;
 	int	print;
 	int count;
+	int	nb_count;
 }		t_init;
 
 ////////////////////////////////////////
@@ -51,7 +52,7 @@ int		ft_verfi_twice(long *str, int num);
 ///				Main.c				///
 //////////////////////////////////////
 
-long	*ft_parsing(char **av, t_init init);
+long	*ft_parsing(char **av, t_init *init);
 
 ////////////////////////////////////////
 ///				Order_s_p.c				///
@@ -86,9 +87,9 @@ void	ft_init(t_init	*init);
 void    ft_reverse_rotate_a_b(t_stack *stack, t_init init);
 
 ////////////////////////////////////////
-///				Utils.c				///
+///				algo.c				///
 //////////////////////////////////////
 
-
+void    ft_algo(t_stack *stack, t_init *init);
 
 #endif

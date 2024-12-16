@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:22 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/13 15:39:33 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 14:28:16 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,8 @@ int	ft_strlen_long(long	*tab)
 		i++;
 	return(i);
 }
+
+// int	ft_compare(t_stack *stack)
+// {
+// 	while
+// }
