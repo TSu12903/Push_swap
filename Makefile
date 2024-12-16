@@ -6,7 +6,7 @@
 #    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/16 11:37:42 by tcybak           ###   ########.fr        #
+#    Updated: 2024/12/16 14:11:30 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC=  	mandatory/parsing/parsing1.c \
 	mandatory/main.c \
 	mandatory/utils/utils.c \
 	mandatory/order/order_rrr.c \
-	mandatory/init/init.c
+	mandatory/init/init.c \
+	mandatory/algo/algo_turk.c
 
 OBJ = $(SRC:.c=.o)
 

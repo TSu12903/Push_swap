@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:54:02 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 12:57:08 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 14:13:41 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,5 @@ void	ft_push_a(t_stack *stack, t_init *init)
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
-	ft_printf("pb\n");
+	ft_printf("pa\n");
 }
