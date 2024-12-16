@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 17:03:24 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:45:48 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check_sign_num(char *str)
 			return (0);
 		if ((str[i] == '+' || str[i] == '-')
 			&& (!(str[i + 1] >= '0' && str[i + 1] <= '9')
-				|| (str[i - 1] != ' ')))
+				&& (str[i - 1] != ' ')))
 			return (0);
 		if ((str[i] >= '0' && str[i] <= '9')
 			&& !(str[i + 1] == ' ' || str[i + 1] == '\0'
@@ -53,8 +53,8 @@ int	total_word(char *str, t_init init)
 				init.i++;
 				init.k++;
 			}
-			if (init.k > 11)
-				return (0);
+			 if (init.k > 13)
+			 	return (0);
 		}
 		else
 			return (0);
