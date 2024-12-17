@@ -6,7 +6,7 @@
 #    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/16 17:14:29 by tcybak           ###   ########.fr        #
+#    Updated: 2024/12/17 10:39:54 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,21 +32,22 @@ OBJ := $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(LIB)
+	@$(MAKE) -C $(LIB) -s
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR)
-	$(MAKE) -C $(LIB) clean
+	@rm -rf $(OBJDIR)
+	@$(MAKE) -C $(LIB) clean
 	
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C $(LIB) fclean
+	@rm -f $(NAME)
+	@$(MAKE) -C $(LIB) fclean
+	@echo Good Bebou
 
 re: fclean all

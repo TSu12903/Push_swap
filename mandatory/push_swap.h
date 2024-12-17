@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 18:34:41 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:16:01 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		ft_strlen_long(long	*tab);
 //////////////////////////////////////
 
 int		ft_verfi_twice(long *str, int num);
+int ft_protect_overflow(char *str, t_init init);
 
 ////////////////////////////////////////
 ///				Main.c				///

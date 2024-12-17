@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 18:41:17 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/17 14:29:28 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	ft_check_sign_num(char *str)
 			return (0);
 		if ((str[i] == '+' || str[i] == '-')
 			&& (!(str[i + 1] >= '0' && str[i + 1] <= '9')
-				&& (str[i - 1] != ' ')))
+				|| (str[i + 1] == ' ')))
 			return (0);
 		if ((str[i] >= '0' && str[i] <= '9')
 			&& !(str[i + 1] == ' ' || str[i + 1] == '\0'
-				|| (str[i] >= '0' && str[i] <= '9')))
+				|| (str[i + 1] >= '0' && str[i + 1] <= '9')))
 			return (0);
 		i++;
 	}
@@ -49,12 +49,7 @@ int	total_word(char *str, t_init init)
 			if (str[init.i] >= '0' && str[init.i] <= '9')
 				init.count++;
 			while (str[init.i] >= '0' && str[init.i] <= '9')
-			{
 				init.i++;
-				init.k++;
-			}
-			 if (init.k > 13)
-			 	return (0);
 		}
 		else
 			return (0);
@@ -100,7 +95,7 @@ int	ft_parsing_verif(char **av, t_init init)
 		j = total_word(av[i], init);
 		if (j == 0)
 		{
-			ft_printf("%s\n", "Error");
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		nb_count += j;

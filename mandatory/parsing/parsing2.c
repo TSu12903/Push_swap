@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:54:44 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/06 17:12:17 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:39:52 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_verfi_twice(long *str, int num)
 	i = 0;
 	if (str[i] > 2147483647 || str[i] < -2147483648)
 	{
-		ft_printf("%s\n", "Error");
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	while (i < num)
@@ -30,7 +30,7 @@ int	ft_verfi_twice(long *str, int num)
 		{
 			if (str[i] > 2147483647 || str[i] < -2147483648 || str[i] == str[j])
 			{
-				ft_printf("%s\n", "Error");
+				write(2, "Error\n", 6);
 				return (0);
 			}
 			j++;
