@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:38 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/18 20:28:41 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/18 20:31:44 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	ft_nb_max_stack_b(t_stack *stack, t_init init)
 			init.k = init.i;
 		init.i++;
 	}
-	ft_printf("-+-+-+-+-%d\n", init.k);
 	return (init.k);
 }
 
@@ -54,6 +53,7 @@ void	ft_best_move(t_stack *stack, t_init *init)
 	{
 
 		ft_count_move(stack, init);
+		ft_printf("-+-+-+-+-%d\n", stack->count_move);
 		if (stack->count_move < stack->best_move)
 		{
 			stack->best_move = stack->count_move;
