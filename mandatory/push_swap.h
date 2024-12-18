@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/17 13:16:01 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/18 19:28:08 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 
 # include "../libft/libft.h"
 
+# define NO_PRINT 0
+
 typedef struct s_stack
 {
 	long	*stack_a;
 	long	*stack_b;
 	int		size_a;
 	int		size_b;
+	int		best_move;
+	int		count_move;
 }			t_stack;
 
 typedef struct s_init
@@ -92,5 +96,11 @@ void    ft_reverse_rotate_a_b(t_stack *stack, t_init init);
 //////////////////////////////////////
 
 void    ft_algo(t_stack *stack, t_init *init);
+
+////////////////////////////////////////
+///				algo_move.c			///
+//////////////////////////////////////
+
+void	ft_best_move(t_stack *stack, t_init *init);
 
 #endif

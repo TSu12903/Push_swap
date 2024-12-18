@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/17 14:49:12 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/18 13:18:10 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	main(int ac, char **av)
 			ft_printf("stack_b++%d\n", stack->stack_b[init->i]);
 			init->i++;
 		}
-		free(stack->stack_b);
 	}
 	if (stack->stack_a)
 		free(stack->stack_b);

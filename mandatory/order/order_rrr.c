@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:07:48 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 14:13:27 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/18 19:27:53 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void    ft_reverse_rotate_a_b(t_stack *stack, t_init init)
     init.print = 0;
     ft_reverse_rotate_a(stack, init);
     ft_reverse_rotate_b(stack, init);
-    ft_printf("rrr");
+    write(2, "rrr\n", 4);
 }

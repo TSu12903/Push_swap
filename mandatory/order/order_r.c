@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:47:30 by tsugeku           #+#    #+#             */
-/*   Updated: 2024/12/17 13:00:08 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/18 19:27:44 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_rotate_a(t_stack *stack, t_init init)
 		init.j++;
 	}
 	stack->stack_a[stack->size_a - 1] = init.k;
-	if (init.print != 0)
-			ft_printf("ra\n");
+	if (init.print != NO_PRINT)
+			write(2, "ra\n", 3);
 }
 
 void	ft_rotate_b(t_stack *stack, t_init init)
@@ -41,7 +41,7 @@ void	ft_rotate_b(t_stack *stack, t_init init)
 	}
 	stack->stack_b[stack->size_b - 1] = init.k;
 	if (init.print != 0)
-			ft_printf("rb\n");
+			write(2, "rb\n", 3);
 }
 
 void	ft_rotate_a_b(t_stack *stack, t_init init)
@@ -49,7 +49,7 @@ void	ft_rotate_a_b(t_stack *stack, t_init init)
 	init.print = 0;
 	ft_rotate_a(stack, init);
 	ft_rotate_b(stack, init);
-	ft_printf("rr");
+	write(2,"rr\n", 3);
 }
 void	ft_reverse_rotate_a(t_stack *stack, t_init init)
 {
@@ -67,7 +67,7 @@ void	ft_reverse_rotate_a(t_stack *stack, t_init init)
 	}
 	stack->stack_a[0] = init.l;
 	if (init.print != 0)
-			ft_printf("rra\n");
+			write(2, "rra\n", 4);
 }
 void	ft_reverse_rotate_b(t_stack *stack, t_init init)
 {
