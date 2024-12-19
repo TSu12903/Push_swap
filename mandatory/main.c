@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/18 13:18:10 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/19 16:40:44 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int ac, char **av)
 	stack->stack_a = ft_parsing(av, init);
 	if (stack->stack_a)
 		stack->stack_b = ft_calloc(init->nb_count_size, sizeof(long));
+	else
+		return (0);
 	stack->size_a = init->nb_count_size;
 	stack->size_b = 0;
 	ft_algo(stack, init);
