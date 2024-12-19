@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/18 19:28:08 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/19 18:19:24 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ typedef struct s_init
 	int	k;
 	int	l;
 	int	print;
-	int count;
-	int nb_count_size;
+	int	count;
+	int	nb_count_size;
+	int	stop_move_a;
 }		t_init;
 
 ////////////////////////////////////////
@@ -51,7 +52,6 @@ int		ft_strlen_long(long	*tab);
 //////////////////////////////////////
 
 int		ft_verfi_twice(long *str, int num);
-int ft_protect_overflow(char *str, t_init init);
 
 ////////////////////////////////////////
 ///				Main.c				///
@@ -89,13 +89,13 @@ void	ft_init(t_init	*init);
 ///				order_rrr.c			///
 //////////////////////////////////////
 
-void    ft_reverse_rotate_a_b(t_stack *stack, t_init init);
+void	ft_reverse_rotate_a_b(t_stack *stack, t_init init);
 
 ////////////////////////////////////////
 ///				algo.c				///
 //////////////////////////////////////
 
-void    ft_algo(t_stack *stack, t_init *init);
+void	ft_algo(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///				algo_move.c			///
