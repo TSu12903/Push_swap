@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 13:17:31 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/19 18:19:24 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 
 # include "../libft/libft.h"
 
+# define NO_PRINT 0
+
 typedef struct s_stack
 {
 	long	*stack_a;
 	long	*stack_b;
 	int		size_a;
 	int		size_b;
+	int		best_move;
+	int		count_move;
 }			t_stack;
 
 typedef struct s_init
@@ -30,7 +34,9 @@ typedef struct s_init
 	int	k;
 	int	l;
 	int	print;
-	int count;
+	int	count;
+	int	nb_count_size;
+	int	stop_move_a;
 }		t_init;
 
 ////////////////////////////////////////
@@ -51,7 +57,7 @@ int		ft_verfi_twice(long *str, int num);
 ///				Main.c				///
 //////////////////////////////////////
 
-long	*ft_parsing(char **av, t_init init);
+long	*ft_parsing(char **av, t_init *init);
 
 ////////////////////////////////////////
 ///				Order_s_p.c				///
@@ -83,6 +89,18 @@ void	ft_init(t_init	*init);
 ///				order_rrr.c			///
 //////////////////////////////////////
 
-void    ft_reverse_rotate_a_b(t_stack *stack, t_init init);
+void	ft_reverse_rotate_a_b(t_stack *stack, t_init init);
+
+////////////////////////////////////////
+///				algo.c				///
+//////////////////////////////////////
+
+void	ft_algo(t_stack *stack, t_init *init);
+
+////////////////////////////////////////
+///				algo_move.c			///
+//////////////////////////////////////
+
+void	ft_best_move(t_stack *stack, t_init *init);
 
 #endif

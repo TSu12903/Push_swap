@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:54:02 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/16 12:57:08 by tcybak           ###   ########.fr       */
+/*   Updated: 2024/12/19 18:19:47 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_swap_a(t_stack *stack, t_init *init)
 {
 	long	swap;
 
-	stack->size_a = ft_strlen_long(stack->stack_a);
 	if (stack->size_a <= 1)
 		return ;
 	else
@@ -25,7 +24,7 @@ void	ft_swap_a(t_stack *stack, t_init *init)
 		stack->stack_a[0] = stack->stack_a[1];
 		stack->stack_a[1] = swap;
 		if (init->print != 0)
-			ft_printf("sa\n");
+			write(2, "sa\n", 3);
 	}
 }
 
@@ -33,7 +32,6 @@ void	ft_swap_b(t_stack *stack, t_init *init)
 {
 	long	swap;
 
-	stack->size_b = ft_strlen_long(stack->stack_b);
 	if (stack->size_b < 1)
 		return ;
 	else
@@ -42,7 +40,7 @@ void	ft_swap_b(t_stack *stack, t_init *init)
 		stack->stack_b[0] = stack->stack_b[1];
 		stack->stack_b[1] = swap;
 		if (init->print != 0)
-			ft_printf("sa\n");
+			write(2, "sb\n", 3);
 	}
 }
 
@@ -50,15 +48,15 @@ void	ft_swap_ss(t_stack *stack)
 {
 	ft_swap_a(stack, 0);
 	ft_swap_b(stack, 0);
-	ft_printf("ss\n");
+	write(2, "ss\n", 3);
 }
 
 void	ft_push_b(t_stack *stack, t_init *init)
 {
 	init->i = 0;
 	init->j = 1;
-	stack->size_b = ft_strlen_long(stack->stack_b) + 1;
-	stack->size_a = ft_strlen_long(stack->stack_a) - 1;
+	stack->size_b += 1;
+	stack->size_a -= 1;
 	if (stack->stack_a == 0)
 		return ;
 	while (init->j < stack->size_b)
@@ -78,15 +76,15 @@ void	ft_push_b(t_stack *stack, t_init *init)
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
-	ft_printf("pb\n");
+	write(2, "pb\n", 3);
 }
 
 void	ft_push_a(t_stack *stack, t_init *init)
 {
 	init->i = 0;
 	init->j = 1;
-	stack->size_b = ft_strlen_long(stack->stack_b) - 1;
-	stack->size_a = ft_strlen_long(stack->stack_a) + 1;
+	stack->size_b -= 1;
+	stack->size_a += 1;
 	if (stack->stack_b == 0)
 		return ;
 	while (init->j < stack->size_a)
@@ -106,5 +104,5 @@ void	ft_push_a(t_stack *stack, t_init *init)
 		init->i++;
 	}
 	stack->stack_a[stack->size_a] = '\0';
-	ft_printf("pb\n");
+	write(2, "pa\n", 3);
 }
