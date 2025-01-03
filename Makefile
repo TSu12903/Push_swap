@@ -6,7 +6,7 @@
 #    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/12/18 15:08:11 by tcybak           ###   ########.fr        #
+#    Updated: 2025/01/03 20:33:42 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC := parsing/parsing1.c \
 	   order/order_rrr.c \
 	   init/init.c \
 	   algo/algo.c	\
-	   algo/algo_move.c \
+	   algo/algo_move_verif.c \
+	   algo/algo_best_move.c \
 
 OBJ := $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 

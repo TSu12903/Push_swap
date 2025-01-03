@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/19 18:19:24 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/03 20:31:00 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_init
 	int	count;
 	int	nb_count_size;
 	int	stop_move_a;
+	int	tree;
 }		t_init;
 
 ////////////////////////////////////////
@@ -98,9 +99,15 @@ void	ft_reverse_rotate_a_b(t_stack *stack, t_init init);
 void	ft_algo(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
-///				algo_move.c			///
+///			algo_move_verfif.c		///
 //////////////////////////////////////
 
 void	ft_best_move(t_stack *stack, t_init *init);
+
+////////////////////////////////////////
+///			algo_best_move.c		///
+//////////////////////////////////////
+
+void	ft_less_tree(t_stack *stack, t_init *init);
 
 #endif
