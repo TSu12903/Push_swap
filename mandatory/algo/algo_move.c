@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:38 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/03 19:10:58 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/03 19:36:15 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_between(t_stack *stack, t_init *init)
 		if (stack->stack_a[init->i] < stack->stack_b[init->j]
 			&& stack->stack_a[init->i] > stack->stack_b[init->j + 1])
 		{
-			ft_printf("here1\n");
+//			ft_printf("here1\n");
 			if ((stack->size_b - init->j) < stack->size_b / 2)
 				stack->count_move += stack->size_b - init->j;
 			else
@@ -55,18 +55,18 @@ void	ft_between(t_stack *stack, t_init *init)
 		else if (stack->stack_a[init->i] > stack->stack_b[init->j]
 			&& init->j == stack->size_b - 1)
 			{
-				ft_printf("here2\n");
+//				ft_printf("here2\n");
 				stack->count_move++;
 			}
 		init->j++;
-		ft_printf("3\n");
+//		ft_printf("3\n");
 	}
 }
 
 void	ft_count_move(t_stack *stack, t_init *init)
 {
 	ft_printf("count_move start %d\n", stack->count_move);
-	if (stack->stack_a[init->i] != 0)
+	if (init->i != 0)
 	{
 		if ((stack->size_a - init->i) < stack->size_a / 2)
 			stack->count_move += stack->size_a - init->i;
@@ -80,7 +80,7 @@ void	ft_count_move(t_stack *stack, t_init *init)
 			stack->count_move += stack->size_b - init->k;
 		else
 			stack->count_move += init->k;
-		ft_printf("1 \n");
+//		ft_printf("1 \n");
 	}
 	init->j = ft_nb_min_stack_b(stack, *init);
 	if (stack->stack_a[init->i] < stack->stack_b[init->j]) // rb or rrb
@@ -89,7 +89,7 @@ void	ft_count_move(t_stack *stack, t_init *init)
 			stack->count_move += stack->size_b - init->k;
 		else
 			stack->count_move += init->k;
-		ft_printf("2 \n");
+//		ft_printf("2 \n");
 	}
 	if (stack->stack_a[init->i] > stack->stack_b[init->j]
 		&& stack->stack_a[init->i] < stack->stack_b[init->k])
