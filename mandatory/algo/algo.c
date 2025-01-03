@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:11:04 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/19 18:38:49 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/03 19:09:32 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,18 @@ void	ft_start(t_stack *stack, t_init *init)
 		return ;
 	ft_push_b(stack, init);
 	ft_push_b(stack, init);
-	if (ft_classify_b(stack, init) != 0)
+	if (ft_classify_b(stack, init) == 0)
 		ft_swap_b(stack, init);
 }
 
 void	ft_algo(t_stack *stack, t_init *init)
 {
-	//init->stop_move_a = 0;
+	init->stop_move_a = 0;
 	ft_start(stack, init);
 	ft_best_move(stack, init);
 	// while (init->stop_move_a < stack->size_a - 3)
 	// {
-	// 	ft_best_move(stack, init);
+	//	ft_best_move(stack, init);
 	// 	init->stop_move_a++;
 	// }
 }
