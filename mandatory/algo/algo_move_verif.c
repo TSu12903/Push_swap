@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:38 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 11:24:28 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 13:16:42 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,14 @@ int	ft_nb_min_stack_b(t_stack *stack, t_init init)
 	return (init.k);
 }
 
-void	calculate_moves_between(t_stack *stack, t_init *init)
+void	calculate_moves_between_b(t_stack *stack, t_init *init)
 {
 	init->j = 0;
 	while (init->j < stack->size_b)
 	{
 		if (stack->stack_a[init->i] < stack->stack_b[init->j]
 			&& stack->stack_a[init->i] > stack->stack_b[init->j + 1])
-		{
-			if ((stack->size_b - init->j) < stack->size_b / 2)
-				stack->count_move += stack->size_b - init->j;
-			else
-				stack->count_move += init->j;
-		}
+				select_rotation(stack->size_b, init->j, init);
 		else if (stack->stack_a[init->i] > stack->stack_b[init->j]
 			&& init->j == stack->size_b - 1)
 				stack->count_move++;
@@ -61,16 +56,16 @@ void	calculate_moves_between(t_stack *stack, t_init *init)
 void	calculate_total_moves(t_stack *stack, t_init *init)
 {
 	if (init->i != 0)
-		calculate_moves_a(stack, init); // ra or rra
+		calculate_moves(stack->size_a, init->i, stack); // ra or rra
 	init->k = ft_nb_max_stack_b(stack, *init);
 	if (stack->stack_a[init->i] > stack->stack_b[init->k]) // rb or rrb
-		calculate_moves_b(stack, init);
+		calculate_moves(stack->size_b, init->k, stack);
 	init->j = ft_nb_min_stack_b(stack, *init);
 	if (stack->stack_a[init->i] < stack->stack_b[init->j]) // rb or rrb
-		calculate_moves_b(stack, init);
+		calculate_moves(stack->size_b, init->k, stack);
 	if (stack->stack_a[init->i] > stack->stack_b[init->j]
 		&& stack->stack_a[init->i] < stack->stack_b[init->k])
-		calculate_moves_between(stack, init);
+		calculate_moves_between_b(stack, init);
 	stack->count_move++; // push b
 }
 

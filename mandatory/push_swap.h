@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 12:17:22 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 14:18:54 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_init
 	int	nb_rb;
 	int	nb_rra;
 	int	nb_rrb;
+	int	nb_rrr;
+	int	nb_rr;
 }		t_init;
 
 ////////////////////////////////////////
@@ -55,10 +57,9 @@ long	*ft_one_free(long *tab1);
 ///				Utils_algo.c		///
 //////////////////////////////////////
 
-void	calculate_moves_b(t_stack *stack, t_init *init);
-void	select_rotation_b(t_stack *stack, t_init *init);
-void	calculate_moves_a(t_stack *stack, t_init *init);
-void	select_rotation_a(t_stack *stack, t_init *init);
+void	calculate_moves(int stack1, int far , t_stack *stack);
+void	select_rotation(int stack, int max, t_init *init);
+int		check_reverse(int ra, int rb, int rr);
 
 ////////////////////////////////////////
 ///				Parsing2.c			///
@@ -122,5 +123,6 @@ void	ft_best_move(t_stack *stack, t_init *init);
 //////////////////////////////////////
 
 void	ft_less_tree(t_stack *stack, t_init *init);
+void	ft_move_stack_b(t_stack *stack, t_init *init);
 
 #endif
