@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/03 20:31:00 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 10:40:38 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ft_algo(t_stack *stack, t_init *init);
 void	ft_best_move(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
-///			algo_best_move.c		///
+///			algo_move.c				///
 //////////////////////////////////////
 
 void	ft_less_tree(t_stack *stack, t_init *init);
