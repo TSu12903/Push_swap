@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 10:49:42 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 12:17:22 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,27 @@ typedef struct s_init
 	int	nb_count_size;
 	int	stop_move_a;
 	int	tree;
+	int	nb_ra;
+	int	nb_rb;
+	int	nb_rra;
+	int	nb_rrb;
 }		t_init;
 
 ////////////////////////////////////////
-///				Utils.c				///
+///				Utils_parsing.c		///
 //////////////////////////////////////
 
 void	ft_free(char **str);
 long	*ft_one_free(long *tab1);
+
+////////////////////////////////////////
+///				Utils_algo.c		///
+//////////////////////////////////////
+
 void	calculate_moves_b(t_stack *stack, t_init *init);
+void	select_rotation_b(t_stack *stack, t_init *init);
+void	calculate_moves_a(t_stack *stack, t_init *init);
+void	select_rotation_a(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///				Parsing2.c			///
@@ -101,7 +113,8 @@ void	ft_algo(t_stack *stack, t_init *init);
 ////////////////////////////////////////
 ///			algo_move_verfif.c		///
 //////////////////////////////////////
-
+int		ft_nb_min_stack_b(t_stack *stack, t_init init);
+int		ft_nb_max_stack_b(t_stack *stack, t_init init);
 void	ft_best_move(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////

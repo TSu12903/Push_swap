@@ -6,7 +6,7 @@
 #    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2025/01/06 10:40:47 by tcybak           ###   ########.fr        #
+#    Updated: 2025/01/06 11:21:42 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC := parsing/parsing1.c \
 	   order/order_s_p.c \
 	   order/order_r.c \
 	   main.c \
-	   utils/utils.c \
+	   utils/utils_parsing.c \
+	   utils/utils_algo.c \
 	   order/order_rrr.c \
 	   init/init.c \
 	   algo/algo.c	\

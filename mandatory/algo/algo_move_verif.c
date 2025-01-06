@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:38 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 10:51:37 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 11:24:28 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,7 @@ void	calculate_moves_between(t_stack *stack, t_init *init)
 void	calculate_total_moves(t_stack *stack, t_init *init)
 {
 	if (init->i != 0)
-	{
-		if ((stack->size_a - init->i) < stack->size_a / 2)
-			stack->count_move += stack->size_a - init->i;
-		else
-			stack->count_move += init->i;
-	} // ra or rra
+		calculate_moves_a(stack, init); // ra or rra
 	init->k = ft_nb_max_stack_b(stack, *init);
 	if (stack->stack_a[init->i] > stack->stack_b[init->k]) // rb or rrb
 		calculate_moves_b(stack, init);
