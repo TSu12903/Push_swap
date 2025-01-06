@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 10:40:38 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 10:49:42 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_init
 
 void	ft_free(char **str);
 long	*ft_one_free(long *tab1);
-int		ft_strlen_long(long	*tab);
+void	calculate_moves_b(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///				Parsing2.c			///

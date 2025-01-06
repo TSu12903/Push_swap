@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_move.c                                        :+:      :+:    :+:   */
+/*   algo_move_verif.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:38 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/03 19:36:15 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 10:51:37 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_nb_min_stack_b(t_stack *stack, t_init init)
 	return (init.k);
 }
 
-void	ft_between(t_stack *stack, t_init *init)
+void	calculate_moves_between(t_stack *stack, t_init *init)
 {
 	init->j = 0;
 	while (init->j < stack->size_b)
@@ -46,7 +46,6 @@ void	ft_between(t_stack *stack, t_init *init)
 		if (stack->stack_a[init->i] < stack->stack_b[init->j]
 			&& stack->stack_a[init->i] > stack->stack_b[init->j + 1])
 		{
-//			ft_printf("here1\n");
 			if ((stack->size_b - init->j) < stack->size_b / 2)
 				stack->count_move += stack->size_b - init->j;
 			else
@@ -54,18 +53,13 @@ void	ft_between(t_stack *stack, t_init *init)
 		}
 		else if (stack->stack_a[init->i] > stack->stack_b[init->j]
 			&& init->j == stack->size_b - 1)
-			{
-//				ft_printf("here2\n");
 				stack->count_move++;
-			}
 		init->j++;
-//		ft_printf("3\n");
 	}
 }
 
-void	ft_count_move(t_stack *stack, t_init *init)
+void	calculate_total_moves(t_stack *stack, t_init *init)
 {
-	ft_printf("count_move start %d\n", stack->count_move);
 	if (init->i != 0)
 	{
 		if ((stack->size_a - init->i) < stack->size_a / 2)
@@ -75,27 +69,14 @@ void	ft_count_move(t_stack *stack, t_init *init)
 	} // ra or rra
 	init->k = ft_nb_max_stack_b(stack, *init);
 	if (stack->stack_a[init->i] > stack->stack_b[init->k]) // rb or rrb
-	{
-		if ((stack->size_b - init->k) < stack->size_b / 2)
-			stack->count_move += stack->size_b - init->k;
-		else
-			stack->count_move += init->k;
-//		ft_printf("1 \n");
-	}
+		calculate_moves_b(stack, init);
 	init->j = ft_nb_min_stack_b(stack, *init);
 	if (stack->stack_a[init->i] < stack->stack_b[init->j]) // rb or rrb
-	{
-		if ((stack->size_b - init->k) < stack->size_b / 2)
-			stack->count_move += stack->size_b - init->k;
-		else
-			stack->count_move += init->k;
-//		ft_printf("2 \n");
-	}
+		calculate_moves_b(stack, init);
 	if (stack->stack_a[init->i] > stack->stack_b[init->j]
 		&& stack->stack_a[init->i] < stack->stack_b[init->k])
-		ft_between(stack, init);
+		calculate_moves_between(stack, init);
 	stack->count_move++; // push b
-	ft_printf("count_move end %d\n", stack->count_move);
 }
 
 void	ft_best_move(t_stack *stack, t_init *init)
@@ -106,8 +87,8 @@ void	ft_best_move(t_stack *stack, t_init *init)
 	init->l = 0;
 	while (init->i < stack->size_a)
 	{
-		ft_count_move(stack, init);
-//		ft_printf("count_move test%d\n", stack->count_move);
+		calculate_total_moves(stack, init);
+		ft_printf("count_move test %d \n", stack->count_move);
 		if (stack->count_move < stack->best_move)
 		{
 			stack->best_move = stack->count_move;
