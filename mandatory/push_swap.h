@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 14:18:54 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 16:12:39 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ long	*ft_one_free(long *tab1);
 //////////////////////////////////////
 
 void	calculate_moves(int stack1, int far , t_stack *stack);
-void	select_rotation(int stack, int max, t_init *init);
+void	select_rotation_b(int stack, int far, t_init *init);
 int		check_reverse(int ra, int rb, int rr);
+void	select_rotation_a(int stack, int far, t_init *init);
 
 ////////////////////////////////////////
 ///				Parsing2.c			///
@@ -125,4 +126,9 @@ void	ft_best_move(t_stack *stack, t_init *init);
 void	ft_less_tree(t_stack *stack, t_init *init);
 void	ft_move_stack_b(t_stack *stack, t_init *init);
 
+
+
+//////////////////////////////////////
+
+void	print(t_stack *stack ,t_init init);
 #endif

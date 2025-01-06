@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:44:21 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 14:36:56 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:44:29 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,17 @@ void	select_moves_between_b(t_stack *stack, t_init *init)
 	init->j = 0;
 	while (init->j < stack->size_b)
 	{
-		if (stack->stack_a[init->l] < stack->stack_b[init->j]
-			&& stack->stack_a[init->l] > stack->stack_b[init->j + 1])
-			calculate_moves(stack->size_b, init->j, stack);
+		if (init->j - 1 != -1 && stack->stack_a[init->l] > stack->stack_b[init->j]
+			&& stack->stack_a[init->l] < stack->stack_b[init->j - 1])
+			{
+			select_rotation_b(stack->size_b, init->j, init);
+//			ft_printf("HERE1 rb = %d, rrb = %d \n", init->nb_rb, init->nb_rrb);
+			}
 		else if (stack->stack_a[init->l] > stack->stack_b[init->j]
-			&& init->j == stack->size_b - 1)
+			&& init->j == stack->size_b){
 			init->nb_rrb++;
+//			ft_printf("HERE2 rb = %d, rrb = %d j = %d \n", init->nb_rb, init->nb_rrb, init->j);
+			}
 		init->j++;
 	}
 }
@@ -62,13 +67,13 @@ void	determine_stack_b_moves(t_stack *stack, t_init *init)
 	init->nb_rra = 0;
 	init->nb_rrb = 0;
 	if (init->l != 0)
-		select_rotation(stack->size_a, init->l, init); // ra or rra
+		select_rotation_a(stack->size_a, init->l, init); // ra or rra
 	init->k = ft_nb_max_stack_b(stack, *init);
 	if (stack->stack_a[init->l] > stack->stack_b[init->k]) // rb or rrb
-		select_rotation(stack->size_b, init->k, init);
+		select_rotation_b(stack->size_b, init->k, init);
 	init->j = ft_nb_min_stack_b(stack, *init);
 	if (stack->stack_a[init->l] < stack->stack_b[init->j]) // rb or rrb
-		select_rotation(stack->size_b, init->k, init);
+		select_rotation_b(stack->size_b, init->k, init);
 	if (stack->stack_a[init->l] > stack->stack_b[init->j]
 		&& stack->stack_a[init->l] < stack->stack_b[init->k])
 		select_moves_between_b(stack, init);
@@ -78,10 +83,10 @@ void	ft_move_stack_b(t_stack *stack, t_init *init)
 	init->nb_rr = 0;
 	init->nb_rrr = 0;
 	determine_stack_b_moves(stack, init);
-	ft_printf("nb_ra %d\n", init->nb_ra);
-	ft_printf("nb_rra %d\n", init->nb_rra);
-	ft_printf("nb_rb %d\n", init->nb_rb);
-	ft_printf("nb_rrb %d\n", init->nb_rrb);
+	// ft_printf("nb_ra %d\n", init->nb_ra);
+	// ft_printf("nb_rra %d\n", init->nb_rra);
+	// ft_printf("nb_rb %d\n", init->nb_rb);
+	// ft_printf("nb_rrb %d\n", init->nb_rrb);
 	if (init->nb_ra != 0 && init->nb_rb != 0)
 		init->nb_rr += check_reverse(init->nb_ra, init->nb_rb, init->nb_rr);
 	if (init->nb_rra != 0 && init->nb_rrb != 0)
@@ -117,8 +122,8 @@ void	ft_move_stack_b(t_stack *stack, t_init *init)
 		init->nb_rrb--;
 	}
 	ft_push_b(stack, init); // push b
-	ft_printf("nb_ra %d\n", init->nb_ra);
-	ft_printf("nb_rra %d\n", init->nb_rra);
-	ft_printf("nb_rb %d\n", init->nb_rb);
-	ft_printf("nb_rrb %d\n", init->nb_rrb);
+	// ft_printf("nb_ra %d\n", init->nb_ra);
+	// ft_printf("nb_rra %d\n", init->nb_rra);
+	// ft_printf("nb_rb %d\n", init->nb_rb);
+	// ft_printf("nb_rrb %d\n", init->nb_rrb);
 }
