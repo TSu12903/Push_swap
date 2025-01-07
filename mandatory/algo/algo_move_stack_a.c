@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:52:13 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 17:36:26 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 17:59:15 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ void	determine_stack_a_moves(t_stack *stack, t_init *init)
 	init->nb_rb = 0;
 	init->nb_rra = 0;
 	init->nb_rrb = 0;
-    init->j = ft_nb_min_stack_a(stack, *init);
-    init->k = ft_nb_max_stack_a(stack, *init);
-	if (stack->stack_b[init->l] < stack->stack_a[init->j])
+    init->min = ft_nb_min_stack_a(stack, *init);
+    init->max = ft_nb_max_stack_a(stack, *init);
+	if (stack->stack_b[init->l] < stack->stack_a[init->min])
     { // rb or rrb
-		select_rotation_a(stack->size_a, init->j, init);
+		select_rotation_a(stack->size_a, init->min, init);
         // ft_printf("HERE1 l = %d \n", stack->stack_b[init->l]);
     }
-	if (stack->stack_b[init->l] > stack->stack_a[init->k])
+	if (stack->stack_b[init->l] > stack->stack_a[init->max])
     { // rb or rrb
-		select_rotation_a(stack->size_a, init->j, init);
+		select_rotation_a(stack->size_a, init->min, init);
         // ft_printf("HERE2\n");
     }
-    if (stack->stack_b[init->l] > stack->stack_a[init->j]
-		&& stack->stack_b[init->l] < stack->stack_a[init->k]){
+    if (stack->stack_b[init->l] > stack->stack_a[init->min]
+		&& stack->stack_b[init->l] < stack->stack_a[init->max]){
 		select_moves_between_a(stack, init);
         // ft_printf("HERE3\n");
     }

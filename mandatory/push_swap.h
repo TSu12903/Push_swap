@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 17:20:40 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 17:54:07 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_init
 	int	j;
 	int	k;
 	int	l;
+	int	min;
+	int	max;
 	int	print;
 	int	count;
 	int	nb_count_size;

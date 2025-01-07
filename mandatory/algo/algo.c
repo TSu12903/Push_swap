@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:11:04 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 17:37:37 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 17:56:47 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void	ft_algo(t_stack *stack, t_init *init)
 		ft_move_stack_a(stack, init);
 		// print(stack , *init);
 	}
-	init->j = ft_nb_min_stack_a(stack, *init);
-	if (init->j != 0)
+	init->min = ft_nb_min_stack_a(stack, *init);
+	if (init->min != 0)
 	{
-		select_rotation_a(stack->size_a, init->j, init);
+		select_rotation_a(stack->size_a, init->min, init);
 		while (init->nb_ra)
 		{
 			ft_rotate_a(stack, *init);
