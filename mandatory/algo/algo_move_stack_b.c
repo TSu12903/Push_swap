@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:44:21 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 10:44:19 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 17:21:45 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ void	select_moves_between_b(t_stack *stack, t_init *init)
 	init->j = 0;
 	while (init->j < stack->size_b)
 	{
-		if (init->j - 1 != -1 && stack->stack_a[init->l] > stack->stack_b[init->j]
-			&& stack->stack_a[init->l] < stack->stack_b[init->j - 1])
+		if (init->j -1 != -1 && stack->stack_a[init->i] > stack->stack_b[init->j]
+			&& stack->stack_a[init->i] < stack->stack_b[init->j - 1])
 			{
 			select_rotation_b(stack->size_b, init->j, init);
-//			ft_printf("HERE1 rb = %d, rrb = %d \n", init->nb_rb, init->nb_rrb);
+			// ft_printf("B HERE4.1 rb = %d, rrb = %d \n", init->nb_rb, init->nb_rrb);
 			}
 		else if (stack->stack_a[init->l] > stack->stack_b[init->j]
 			&& init->j == stack->size_b){
 			init->nb_rrb++;
-//			ft_printf("HERE2 rb = %d, rrb = %d j = %d \n", init->nb_rb, init->nb_rrb, init->j);
+			// ft_printf("B HERE4.2 rb = %d, rrb = %d j = %d \n", init->nb_rb, init->nb_rrb, init->j);
 			}
 		init->j++;
 	}
@@ -67,13 +67,22 @@ void	determine_stack_b_moves(t_stack *stack, t_init *init)
 	init->nb_rra = 0;
 	init->nb_rrb = 0;
 	if (init->l != 0)
+	{
 		select_rotation_a(stack->size_a, init->l, init); // ra or rra
+		// ft_printf("B HERE1");
+	}
 	init->k = ft_nb_max_stack_b(stack, *init);
-	if (stack->stack_a[init->l] > stack->stack_b[init->k]) // rb or rrb
+	if (stack->stack_a[init->l] > stack->stack_b[init->k])
+	{ // rb or rrb
 		select_rotation_b(stack->size_b, init->k, init);
+		// ft_printf("B HERE2");
+	}
 	init->j = ft_nb_min_stack_b(stack, *init);
-	if (stack->stack_a[init->l] < stack->stack_b[init->j]) // rb or rrb
+	if (stack->stack_a[init->l] < stack->stack_b[init->j])
+	{ // rb or rrb
 		select_rotation_b(stack->size_b, init->k, init);
+		// ft_printf("B HERE3");
+	}
 	if (stack->stack_a[init->l] > stack->stack_b[init->j]
 		&& stack->stack_a[init->l] < stack->stack_b[init->k])
 		select_moves_between_b(stack, init);

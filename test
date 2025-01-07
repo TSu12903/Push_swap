@@ -1,0 +1,45 @@
+- while de list_a
+- chaque list_a
+- voir ou mettre list_b
+- recuperer ma len_b
+1
+2
+3
+4
+5
+
+1
+2
+3
+2
+1
+len_a + len_b = tmp_total;
+
+1
+2
+3 
+3
+2
+1
+
+		if (stack->stack_a[init->i] < stack->stack_b[init->j] && stack->stack_a[init->i] > stack->stack_b[init->j + 1])
+		{
+			stack->count_move = init->j - len;
+		}
+        if (stack->size_b % 2 == 0)
+            if (init->j == stack->size_b / 2 )
+                len++;
+		if (init->j > stack->size_b / 2 )
+			len += 2;
+		init->j++;
+
+        1 1 0
+        2 2 0
+        3 3 0
+        2 4 2
+        1 5 4
+
+        (init->j + 1 == stack->size_b + 1 && stack->stack_a[init->i] < stack->stack_b[init->j] 
+			&& stack->stack_b[init->j] != stack->stack_b[init->min]
+				&& stack->stack_a[init->i] > stack->stack_b[init->j + 1] 
+					&& stack->stack_b[init->j + 1] != stack->stack_b[init->max])

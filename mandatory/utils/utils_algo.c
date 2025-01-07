@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:21:11 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 11:17:03 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 16:10:18 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 void	calculate_moves(int stack1, int far , t_stack *stack)
 {
 		if ((stack1 - far) < stack1 / 2)
+		{
 			stack->count_move += stack1 - far;
+			// ft_printf("calculate_move\n");
+		}
 		else
+		{
 			stack->count_move += far;
+			// ft_printf("calculate_move else %d \n", stack->count_move);
+		}
 }
 
 void	select_rotation_a(int stack, int far, t_init *init)

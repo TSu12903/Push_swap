@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:52:13 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 13:27:07 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 17:36:26 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	select_moves_between_a(t_stack *stack, t_init *init)
 	init->j = 0;
 	while (init->j < stack->size_a)
 	{
-		if (init->j - 1 != -1 && stack->stack_b[init->l] > stack->stack_a[init->j - 1]
-			&& stack->stack_b[init->l] < stack->stack_a[init->j])
+		if (init->j -1 != -1 && stack->stack_b[init->l] < stack->stack_a[init->j]
+			&& stack->stack_b[init->l] > stack->stack_a[init->j - 1])
 			{
 			    select_rotation_a(stack->size_a, init->j, init);
 			    // ft_printf("HERE3.1 rb = %d, rrb = %d \n", init->nb_rb, init->nb_rrb);
