@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:21:11 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 16:46:58 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 11:17:03 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,46 @@ void	select_rotation_b(int stack, int far, t_init *init)
 			init->nb_rrb += stack - far;
 		else
 			init->nb_rb += far;
-		ft_printf("stack = %d position = %d \n",stack, far);
 }
-int	check_reverse(int ra, int rb, int rr)
+void	check_reverse_rr(t_init *init)
 {
-	if  (ra > rb)
+	if  (init->nb_ra > init->nb_rb)
 	{
-		rr = rb;
-		rb = 0;
-	 ra = ra - rb;
+		init->nb_rr = init->nb_rb;
+		init->nb_rb = 0;
+	 	init->nb_ra = init->nb_ra - init->nb_rb;
 	}
-	else if  (ra < rb)
+	else if  (init->nb_ra < init->nb_rb)
 	{
-		rr = ra;
-	 ra = 0;
-		rb = rb - ra;
+		init->nb_rr = init->nb_ra;
+	 	init->nb_ra = 0;
+		init->nb_rb = init->nb_rb - init->nb_ra;
 	}
 	else
-		rr += ra;
-	return (rr);
+	{
+		init->nb_rr += init->nb_ra;
+		init->nb_ra = 0;
+		init->nb_rb = 0;
+	}
+}
+void	check_reverse_rrr(t_init *init)
+{
+	if  (init->nb_rra > init->nb_rrb)
+	{
+		init->nb_rrr = init->nb_rrb;
+		init->nb_rrb = 0;
+	 	init->nb_rra = init->nb_rra - init->nb_rrb;
+	}
+	else if  (init->nb_rra < init->nb_rrb)
+	{
+		init->nb_rrr = init->nb_rra;
+	 	init->nb_rra = 0;
+		init->nb_rrb = init->nb_rrb - init->nb_rra;
+	}
+	else
+	{
+		init->nb_rrr += init->nb_rra;
+		init->nb_rra = 0;
+		init->nb_rrb = 0;
+	}
 }

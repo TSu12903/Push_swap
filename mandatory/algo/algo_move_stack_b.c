@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_move.c                                        :+:      :+:    :+:   */
+/*   algo_move_stack_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:44:21 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 17:44:29 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 10:44:19 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ void	ft_move_stack_b(t_stack *stack, t_init *init)
 	// ft_printf("nb_rb %d\n", init->nb_rb);
 	// ft_printf("nb_rrb %d\n", init->nb_rrb);
 	if (init->nb_ra != 0 && init->nb_rb != 0)
-		init->nb_rr += check_reverse(init->nb_ra, init->nb_rb, init->nb_rr);
+		check_reverse_rr(init);
 	if (init->nb_rra != 0 && init->nb_rrb != 0)
-		init->nb_rrr += check_reverse(init->nb_rra, init->nb_rrb, init->nb_rrr);
+		check_reverse_rrr(init);
 	while (init->nb_rr)
 	{
 		ft_rotate_a_b(stack, *init);

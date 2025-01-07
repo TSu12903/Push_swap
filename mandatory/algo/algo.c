@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:11:04 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/06 17:43:28 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/07 13:40:14 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,12 @@ void	ft_start(t_stack *stack, t_init *init)
 
 void	ft_algo(t_stack *stack, t_init *init)
 {
+	if (stack->size_a <= 3)
+	{
+		ft_less_tree(stack, init);
+		return ;
+	}
 	ft_start(stack, init);
-	print(stack , *init);
 	while (stack->size_a > 3)
 	{
 		ft_best_move(stack, init);
@@ -60,4 +64,25 @@ void	ft_algo(t_stack *stack, t_init *init)
 		// print(stack , *init);
 	}
 	ft_less_tree(stack, init);
+	init->l = 0;
+	while (stack->size_b > 0)
+	{
+		ft_move_stack_a(stack, init);
+		// print(stack , *init);
+	}
+	init->j = ft_nb_min_stack_a(stack, *init);
+	if (init->j != 0)
+	{
+		select_rotation_a(stack->size_a, init->j, init);
+		while (init->nb_ra)
+		{
+			ft_rotate_a(stack, *init);
+			init->nb_ra--;
+		}
+		while (init->nb_rra)
+		{
+			ft_reverse_rotate_a(stack, *init);
+			init->nb_rra--;
+    	}
+	}
 }
