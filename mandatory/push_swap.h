@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 17:54:07 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/08 12:21:06 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	ft_best_move(t_stack *stack, t_init *init);
 
 void	ft_less_tree(t_stack *stack, t_init *init);
 void	ft_move_stack_b(t_stack *stack, t_init *init);
+void	select_moves_between_b(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///			algo_move_stack_a.c		///

@@ -43,3 +43,11 @@ len_a + len_b = tmp_total;
 			&& stack->stack_b[init->j] != stack->stack_b[init->min]
 				&& stack->stack_a[init->i] > stack->stack_b[init->j + 1] 
 					&& stack->stack_b[init->j + 1] != stack->stack_b[init->max])
+
+
+
+
+		(init->j + 1 != stack->size_a + 1 && stack->stack_b[init->l] < stack->stack_a[init->j]
+			&& stack->stack_b[init->l] > stack->stack_a[init->j + 1] 
+				&& stack->stack_a[init->j] != stack->stack_a[init->min] 
+					&& stack->stack_a[init->j + 1] != stack->stack_a[init->max])

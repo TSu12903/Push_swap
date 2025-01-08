@@ -6,29 +6,15 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:21:11 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 16:10:18 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/08 12:19:26 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	calculate_moves(int stack1, int far , t_stack *stack)
-{
-		if ((stack1 - far) < stack1 / 2)
-		{
-			stack->count_move += stack1 - far;
-			// ft_printf("calculate_move\n");
-		}
-		else
-		{
-			stack->count_move += far;
-			// ft_printf("calculate_move else %d \n", stack->count_move);
-		}
-}
-
 void	select_rotation_a(int stack, int far, t_init *init)
 {
-		if ((stack - far) < stack / 2)
+		if ((stack - far) <= stack / 2)
 			init->nb_rra += stack - far;
 		else
 			init->nb_ra += far;
@@ -36,7 +22,7 @@ void	select_rotation_a(int stack, int far, t_init *init)
 
 void	select_rotation_b(int stack, int far, t_init *init)
 {
-		if ((stack - far) < stack / 2)
+		if ((stack - far) <= stack / 2)
 			init->nb_rrb += stack - far;
 		else
 			init->nb_rb += far;

@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:52:13 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/07 17:59:15 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/08 13:59:16 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	select_moves_between_a(t_stack *stack, t_init *init)
 			    // ft_printf("HERE3.1 rb = %d, rrb = %d \n", init->nb_rb, init->nb_rrb);
 			}
 		else if (stack->stack_b[init->l] > stack->stack_a[init->j]
-			&& init->j == stack->size_a)
+			&& init->j == stack->size_a && stack->stack_b[init->l] < stack->stack_a[0])
             {
 			    init->nb_rra++;
 			    // ft_printf("HERE3.2 rb = %d, rrb = %d j = %d \n", init->nb_rb, init->nb_rrb, init->j);
