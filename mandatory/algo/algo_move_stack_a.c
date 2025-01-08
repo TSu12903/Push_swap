@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:52:13 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/08 13:59:16 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/08 14:17:24 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_nb_max_stack_a(t_stack *stack, t_init init)
 	init.k = 0;
 	while (init.i < stack->size_a)
 	{
-		if (stack->stack_a[init.i] > stack->stack_a[init.k])
+		if (stack->stack_a[init.i] >= stack->stack_a[init.k])
 			init.k = init.i;
 		init.i++;
 	}
@@ -31,7 +31,7 @@ int	ft_nb_min_stack_a(t_stack *stack, t_init init)
 	init.k = 0;
 	while (init.i < stack->size_a)
 	{
-		if (stack->stack_a[init.i] < stack->stack_a[init.k])
+		if (stack->stack_a[init.i] <= stack->stack_a[init.k])
 			init.k = init.i;
 		init.i++;
 	}
