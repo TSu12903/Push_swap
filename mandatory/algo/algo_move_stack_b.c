@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:44:21 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/08 14:25:41 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:16:01 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ void	select_moves_between_b(t_stack *stack, t_init *init)
 	while (init->j < stack->size_b)
 	{
 		if (init->j + 1 != stack->size_b + 1 && stack->stack_a[init->l] < stack->stack_b[init->j]
-			&& stack->stack_a[init->l] > stack->stack_b[init->j + 1] 
-				&& (stack->stack_b[init->j] != stack->stack_b[init->min] 
-					|| stack->stack_b[init->j] != stack->stack_b[init->max]))
+			&& stack->stack_a[init->l] > stack->stack_b[init->j + 1]
+					&& (stack->stack_a[init->l] < stack->stack_b[0] && stack->stack_a[init->l] > stack->stack_b[1]
+						&& ((stack->stack_b[init->j] != stack->stack_b[init->min])
+						|| (stack->stack_b[init->j] != stack->stack_b[init->max]))))
 			{
 				select_rotation_b(stack->size_b, init->j + 1, init);
 //				ft_printf("B HERE4.1 rb = %d, rrb = %d number = %d \n", init->nb_rb, init->nb_rrb, stack->stack_b[init->j]);
@@ -58,6 +59,12 @@ void	select_moves_between_b(t_stack *stack, t_init *init)
 			{
 				init->nb_rrb++;
 //				ft_printf("B HERE4.2 rb = %d, rrb = %d number = %d \n", init->nb_rb, init->nb_rrb, stack->stack_b[init->j]);
+			}
+		else if (stack->stack_a[init->l] > stack->stack_b[0]
+			&& init->j == stack->size_b && stack->stack_a[init->l] < stack->stack_b[init->j])
+			{
+				init->nb_rb++;
+				// ft_printf("B HERE4.2 rb = %d, rrb = %d number = %d \n", init->nb_rb, init->nb_rrb, stack->stack_b[init->j]);
 			}
 		init->j++;
 	}
