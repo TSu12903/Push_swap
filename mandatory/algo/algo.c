@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:11:04 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/19 18:38:49 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/09 11:21:52 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int	ft_classify_a(t_stack *stack, t_init *init)
 	return (1);
 }
 
-int	ft_classify_b(t_stack *stack, t_init *init)
-{
-	init->i = 0;
-	init->j = 0;
-	while (init->j < init->nb_count_size)
-	{
-		if (stack->stack_b[init->i] < stack->stack_b[init->j])
-			return (0);
-		init->j++;
-	}
-	return (1);
-}
+// int	ft_classify_b(t_stack *stack, t_init *init)
+// {
+// 	init->i = 0;
+// 	init->j = 0;
+// 	while (init->j < init->nb_count_size)
+// 	{
+// 		if (stack->stack_b[init->i] < stack->stack_b[init->j])
+// 			return (0);
+// 		init->j++;
+// 	}
+// 	return (1);
+// }
 
 void	ft_start(t_stack *stack, t_init *init)
 {
@@ -45,18 +45,49 @@ void	ft_start(t_stack *stack, t_init *init)
 		return ;
 	ft_push_b(stack, init);
 	ft_push_b(stack, init);
-	if (ft_classify_b(stack, init) != 0)
-		ft_swap_b(stack, init);
+	// if (ft_classify_b(stack, init) == 0)
+	// 	ft_swap_b(stack, init);
 }
 
 void	ft_algo(t_stack *stack, t_init *init)
 {
-	//init->stop_move_a = 0;
+	if (stack->size_a == 2)
+	{
+		if (ft_classify_a(stack, init) == 0)
+			ft_swap_a(stack, init);
+	}
+	if (stack->size_a <= 3)
+	{
+		ft_less_tree(stack, init);
+		return ;
+	}
 	ft_start(stack, init);
-	ft_best_move(stack, init);
-	// while (init->stop_move_a < stack->size_a - 3)
-	// {
-	// 	ft_best_move(stack, init);
-	// 	init->stop_move_a++;
-	// }
+	while (stack->size_a > 3)
+	{
+		ft_best_move(stack, init);
+		ft_move_stack_b(stack, init);
+		// print(stack , *init);
+	}
+	ft_less_tree(stack, init);
+	init->l = 0;
+	while (stack->size_b > 0)
+	{
+		ft_move_stack_a(stack, init);
+		// print(stack , *init);
+	}
+	init->min = ft_nb_min_stack_a(stack, *init);
+	if (init->min != 0)
+	{
+		select_rotation_a(stack->size_a, init->min, init);
+		while (init->nb_ra)
+		{
+			ft_rotate_a(stack, *init);
+			init->nb_ra--;
+		}
+		while (init->nb_rra)
+		{
+			ft_reverse_rotate_a(stack, *init);
+			init->nb_rra--;
+    	}
+	}
 }

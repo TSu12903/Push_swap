@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/19 16:40:44 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/09 10:48:11 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,34 @@ int	main(int ac, char **av)
 	stack->size_a = init->nb_count_size;
 	stack->size_b = 0;
 	ft_algo(stack, init);
-	init->i = 0;
-	if (stack->stack_a)
-	{
-		while (init->i < stack->size_a)
-		{
-			ft_printf("stack_a--%d\n", stack->stack_a[init->i]);
-			init->i++;
-		}
-		free(stack->stack_a);
-	}
-	init->i = 0;
-	if (stack->size_b)
-	{
-		while (init->i < stack->size_b)
-		{
-			ft_printf("stack_b++%d\n", stack->stack_b[init->i]);
-			init->i++;
-		}
-	}
+	// print(stack , *init);
 	if (stack->stack_a)
 		free(stack->stack_b);
+	free(stack->stack_a);
 	free(stack);
 	free(init);
 	return (0);
+}
+void	print(t_stack *stack ,t_init init)
+{
+	init.i = 0;
+	if (stack->stack_a)
+	{
+		while (init.i < stack->size_a)
+		{
+			ft_printf("stack_a = %d\n", stack->stack_a[init.i]);
+			init.i++;
+		}
+	}
+	init.i = 0;
+	ft_printf("\n\n\n");
+	if (stack->size_b)
+	{
+		while (init.i < stack->size_b)
+		{
+			ft_printf("stack_b = %d\n", stack->stack_b[init.i]);
+			init.i++;
+		}
+	}
+	ft_printf("\n\n\n");
 }

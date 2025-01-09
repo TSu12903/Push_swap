@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:47:30 by tsugeku           #+#    #+#             */
-/*   Updated: 2024/12/19 18:20:56 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/08 12:53:11 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_rotate_a(t_stack *stack, t_init init)
 	}
 	stack->stack_a[stack->size_a - 1] = init.k;
 	if (init.print != NO_PRINT)
-		write(2, "ra\n", 3);
+		write(1, "ra\n", 3);
 }
 
 void	ft_rotate_b(t_stack *stack, t_init init)
@@ -41,7 +41,7 @@ void	ft_rotate_b(t_stack *stack, t_init init)
 	}
 	stack->stack_b[stack->size_b - 1] = init.k;
 	if (init.print != 0)
-		write(2, "rb\n", 3);
+		write(1, "rb\n", 3);
 }
 
 void	ft_rotate_a_b(t_stack *stack, t_init init)
@@ -49,7 +49,7 @@ void	ft_rotate_a_b(t_stack *stack, t_init init)
 	init.print = 0;
 	ft_rotate_a(stack, init);
 	ft_rotate_b(stack, init);
-	write(2, "rr\n", 3);
+	write(1, "rr\n", 3);
 }
 
 void	ft_reverse_rotate_a(t_stack *stack, t_init init)
@@ -68,7 +68,7 @@ void	ft_reverse_rotate_a(t_stack *stack, t_init init)
 	}
 	stack->stack_a[0] = init.l;
 	if (init.print != 0)
-		write(2, "rra\n", 4);
+		write(1, "rra\n", 4);
 }
 
 void	ft_reverse_rotate_b(t_stack *stack, t_init init)
@@ -87,5 +87,5 @@ void	ft_reverse_rotate_b(t_stack *stack, t_init init)
 	}
 	stack->stack_b[0] = init.l;
 	if (init.print != 0)
-		write(2, "rrb\n", 4);
+		write(1, "rrb\n", 4);
 }
