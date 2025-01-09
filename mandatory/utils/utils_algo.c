@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:21:11 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/08 12:19:26 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/09 11:21:23 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	check_reverse_rr(t_init *init)
 	if  (init->nb_ra > init->nb_rb)
 	{
 		init->nb_rr = init->nb_rb;
-		init->nb_rb = 0;
 	 	init->nb_ra = init->nb_ra - init->nb_rb;
+		init->nb_rb = 0;
 	}
 	else if  (init->nb_ra < init->nb_rb)
 	{
 		init->nb_rr = init->nb_ra;
-	 	init->nb_ra = 0;
 		init->nb_rb = init->nb_rb - init->nb_ra;
+		init->nb_ra = 0;
 	}
 	else
 	{
@@ -53,14 +53,14 @@ void	check_reverse_rrr(t_init *init)
 	if  (init->nb_rra > init->nb_rrb)
 	{
 		init->nb_rrr = init->nb_rrb;
-		init->nb_rrb = 0;
 	 	init->nb_rra = init->nb_rra - init->nb_rrb;
+		init->nb_rrb = 0;
 	}
 	else if  (init->nb_rra < init->nb_rrb)
 	{
 		init->nb_rrr = init->nb_rra;
-	 	init->nb_rra = 0;
 		init->nb_rrb = init->nb_rrb - init->nb_rra;
+		init->nb_rra = 0;
 	}
 	else
 	{
