@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 13:17:15 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:15:13 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	if (stack->stack_a)
 		stack->stack_b = ft_calloc(init->nb_count_size, sizeof(long));
 	else
-		return (0);
+		return (ft_free_all(stack, init));
 	ft_init_size(stack, init);
 	ft_algo(stack, init);
 	if (stack->stack_a)

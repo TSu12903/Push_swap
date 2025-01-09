@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2024/12/17 14:29:28 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:09:42 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,6 @@ long	*ft_parsing(char **av, t_init *init)
 	ft_free(tab);
 	j = ft_verfi_twice(tab1, nb_count);
 	if (j == 0)
-		return (ft_one_free(tab1));
+		return(ft_one_free(tab1));
 	return (tab1);
 }

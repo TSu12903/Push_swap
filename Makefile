@@ -52,6 +52,6 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(LIB) fclean
-	@echo Good Bebou
+	@echo Good
 
 re: fclean all
