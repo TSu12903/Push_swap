@@ -6,13 +6,13 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:11:04 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 13:45:28 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 12:05:41 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_classify_a(t_stack *stack, t_init *init)
+static int	ft_classify_a(t_stack *stack, t_init *init)
 {
 	init->i = 0;
 	init->j = 1;
@@ -26,7 +26,7 @@ int	ft_classify_a(t_stack *stack, t_init *init)
 	return (1);
 }
 
-void	execute_rotation_a(t_stack *stack, t_init *init)
+static void	execute_rotation_a(t_stack *stack, t_init *init)
 {
 	select_rotation_a(stack->size_a, init->min, init);
 	while (init->nb_ra)
@@ -41,7 +41,7 @@ void	execute_rotation_a(t_stack *stack, t_init *init)
 	}
 }
 
-void	ft_start(t_stack *stack, t_init *init)
+static void	ft_start(t_stack *stack, t_init *init)
 {
 	if (ft_classify_a(stack, init) != 0)
 		return ;

@@ -6,13 +6,13 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:52:13 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 13:57:20 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 12:06:13 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_nb_max_stack_a(t_stack *stack, t_init init)
+static int	ft_nb_max_stack_a(t_stack *stack, t_init init)
 {
 	init.i = 0;
 	init.k = 0;
@@ -38,7 +38,7 @@ int	ft_nb_min_stack_a(t_stack *stack, t_init init)
 	return (init.k);
 }
 
-void	select_moves_between_a(t_stack *stack, t_init *init)
+static void	select_moves_between_a(t_stack *stack, t_init *init)
 {
 	init->j = 0;
 	while (init->j < stack->size_a)
@@ -55,7 +55,7 @@ void	select_moves_between_a(t_stack *stack, t_init *init)
 	}
 }
 
-void	determine_stack_a_moves(t_stack *stack, t_init *init)
+static void	determine_stack_a_moves(t_stack *stack, t_init *init)
 {
 	init->nb_ra = 0;
 	init->nb_rb = 0;

@@ -6,13 +6,13 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:22 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 15:17:40 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 14:35:21 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_free(char **str)
+long	ft_free(char **str)
 {
 	int	i;
 
@@ -23,6 +23,7 @@ void	ft_free(char **str)
 		i++;
 	}
 	free(str);
+	return (0);
 }
 
 long	*ft_one_free(long *tab1)
@@ -33,8 +34,13 @@ long	*ft_one_free(long *tab1)
 
 int	ft_free_all(t_stack *stack, t_init *init)
 {
-	free(stack->stack_a);
-	free(stack);
-	free(init);
+	if (stack->stack_a)
+		free(stack->stack_a);
+	if (stack->stack_b)
+		free(stack->stack_b);
+	if (stack)
+		free(stack);
+	if (init)
+		free(init);
 	return (0);
 }

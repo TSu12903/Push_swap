@@ -6,13 +6,13 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 15:17:21 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 14:31:59 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_check_sign_num(char *str)
+static int	ft_check_sign_num(char *str)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ int	ft_check_sign_num(char *str)
 	return (i);
 }
 
-int	total_word(char *str, t_init init)
+static int	total_word(char *str, t_init init)
 {
 	while (str[init.i])
 	{
@@ -58,7 +58,7 @@ int	total_word(char *str, t_init init)
 	return (init.count);
 }
 
-char	**ft_cut(char **tab, char **av, t_init init)
+static char	**ft_cut(char **tab, char **av, t_init init)
 {
 	int		i;
 	int		j;
@@ -82,7 +82,7 @@ char	**ft_cut(char **tab, char **av, t_init init)
 	return (tab);
 }
 
-int	ft_parsing_verif(char **av, t_init init)
+static int	ft_parsing_verif(char **av, t_init init)
 {
 	int	i;
 	int	j;
@@ -120,7 +120,7 @@ long	*ft_parsing(char **av, t_init *init)
 	tab = ft_cut(tab, av, *init);
 	tab1 = ft_calloc(nb_count + 1, sizeof(long));
 	if (tab1 == NULL)
-		return (0);
+		return (ft_free(tab));
 	j = -1;
 	while (tab[++j])
 		tab1[j] = ft_atol(tab[j]);

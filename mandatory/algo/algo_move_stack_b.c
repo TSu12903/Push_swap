@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:44:21 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 13:55:21 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 12:04:45 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	select_moves_between_b(t_stack *stack, t_init *init)
 	}
 }
 
-void	determine_stack_b_moves(t_stack *stack, t_init *init)
+static void	determine_stack_b_moves(t_stack *stack, t_init *init)
 {
 	init->nb_ra = 0;
 	init->nb_rb = 0;
@@ -79,7 +79,7 @@ void	determine_stack_b_moves(t_stack *stack, t_init *init)
 		select_moves_between_b(stack, init);
 }
 
-void	ft_execute_reverse_rotate(t_stack *stack, t_init *init)
+static void	ft_execute_reverse_rotate(t_stack *stack, t_init *init)
 {
 	while (init->nb_rrr)
 	{

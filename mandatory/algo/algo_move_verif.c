@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:38 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/09 13:44:34 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 12:05:19 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_nb_min_stack_b(t_stack *stack, t_init init)
 	return (init.k);
 }
 
-void	calcul_moves_between_b(t_stack *stack, t_init *init)
+static void	calcul_moves_between_b(t_stack *stack, t_init *init)
 {
 	init->j = 0;
 	while (init->j < stack->size_b)
@@ -55,7 +55,7 @@ void	calcul_moves_between_b(t_stack *stack, t_init *init)
 	}
 }
 
-int	calculate_total_moves(t_stack *stack, t_init *init)
+static int	calculate_total_moves(t_stack *stack, t_init *init)
 {
 	init->nb_ra = 0;
 	init->nb_rb = 0;
