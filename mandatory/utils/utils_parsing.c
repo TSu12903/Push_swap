@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:22 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/10 14:44:18 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:26:23 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,24 @@ int	ft_free_all(t_stack *stack, t_init *init)
 		free(stack->stack_b);
 	if (stack)
 		free(stack);
+	if (init)
+		free(init);
+	return (0);
+}
+
+int	ft_free_all_except_b(t_stack *stack, t_init *init)
+{
+	if (stack->stack_a)
+		free(stack->stack_a);
+	if (stack)
+		free(stack);
+	if (init)
+		free(init);
+	return (0);
+}
+
+int	ft_free_init(t_init *init)
+{
 	if (init)
 		free(init);
 	return (0);

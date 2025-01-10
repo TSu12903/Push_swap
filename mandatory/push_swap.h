@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/10 15:09:42 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:26:37 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_init
 void	ft_free(char **str);
 long	*ft_one_free(long *tab1);
 int		ft_free_all(t_stack *stack, t_init *init);
+int		ft_free_init(t_init *init);
+int		ft_free_all_except_b(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///				Utils_algo.c		///

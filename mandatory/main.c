@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:55:53 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/10 15:10:12 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:27:58 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 		return (0);
 	stack = malloc(sizeof(t_stack));
 	if (stack == 0)
-		return (ft_free_all(stack, init));
+		return (ft_free_init(init));
 	ft_init(init);
 	stack->stack_a = ft_parsing(av, init);
 	if (stack->stack_a)
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 			return (0);
 	}
 	else
-		return (ft_free_all(stack, init));
+		return (ft_free_all_except_b(stack, init));
 	ft_init_size(stack, init);
 	ft_algo(stack, init);
 	ft_free_all(stack, init);
