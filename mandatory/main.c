@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 		stack->stack_b = ft_calloc(init->nb_count_size, sizeof(long));
 		if (stack->stack_b == NULL)
 			return (0);
-	}	
+	}
 	else
 		return (ft_free_all(stack, init));
 	ft_init_size(stack, init);
