@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:54:44 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/10 12:09:48 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:11:43 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,29 @@ int	ft_verfi_twice(long *str, int num)
 			}
 			j++;
 		}
+		i++;
+	}
+	return (i);
+}
+
+int	ft_check_sign_num(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == ' '
+				|| str[i] == '+' || str[i] == '-'))
+			return (0);
+		if ((str[i] == '+' || str[i] == '-')
+			&& (!(str[i + 1] >= '0' && str[i + 1] <= '9')
+				|| (str[i + 1] == ' ')))
+			return (0);
+		if ((str[i] >= '0' && str[i] <= '9')
+			&& !(str[i + 1] == ' ' || str[i + 1] == '\0'
+				|| (str[i + 1] >= '0' && str[i + 1] <= '9')))
+			return (0);
 		i++;
 	}
 	return (i);

@@ -6,34 +6,11 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 16:49:54 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/10 14:31:59 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:11:12 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static int	ft_check_sign_num(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == ' '
-				|| str[i] == '+' || str[i] == '-'))
-			return (0);
-		if ((str[i] == '+' || str[i] == '-')
-			&& (!(str[i + 1] >= '0' && str[i + 1] <= '9')
-				|| (str[i + 1] == ' ')))
-			return (0);
-		if ((str[i] >= '0' && str[i] <= '9')
-			&& !(str[i + 1] == ' ' || str[i + 1] == '\0'
-				|| (str[i + 1] >= '0' && str[i + 1] <= '9')))
-			return (0);
-		i++;
-	}
-	return (i);
-}
 
 static int	total_word(char *str, t_init init)
 {
@@ -103,6 +80,19 @@ static int	ft_parsing_verif(char **av, t_init init)
 	return (nb_count);
 }
 
+long	*ft_allocate_and_convert(char **tab, int nb_count)
+{
+	long	*tab1;
+
+	tab1 = ft_calloc(nb_count + 1, sizeof(long));
+	if (tab1 == 0)
+	{
+		ft_free(tab);
+		return (0);
+	}
+	return (tab1);
+}
+
 long	*ft_parsing(char **av, t_init *init)
 {
 	int		j;
@@ -118,9 +108,9 @@ long	*ft_parsing(char **av, t_init *init)
 	if (tab == NULL)
 		return (0);
 	tab = ft_cut(tab, av, *init);
-	tab1 = ft_calloc(nb_count + 1, sizeof(long));
-	if (tab1 == NULL)
-		return (ft_free(tab));
+	tab1 = ft_allocate_and_convert(tab, nb_count);
+	if (tab1 == 0)
+		return (0);
 	j = -1;
 	while (tab[++j])
 		tab1[j] = ft_atol(tab[j]);

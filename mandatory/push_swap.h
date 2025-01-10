@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/10 14:31:53 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:09:42 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_init
 ///				Utils_parsing.c		///
 //////////////////////////////////////
 
-long	ft_free(char **str);
+void	ft_free(char **str);
 long	*ft_one_free(long *tab1);
 int		ft_free_all(t_stack *stack, t_init *init);
 
@@ -70,6 +70,7 @@ void	select_rotation_a(int stack, int far, t_init *init);
 //////////////////////////////////////
 
 int		ft_verfi_twice(long *str, int num);
+int		ft_check_sign_num(char *str);
 
 ////////////////////////////////////////
 ///				parsing1.c				///
