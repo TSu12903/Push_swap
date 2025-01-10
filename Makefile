@@ -52,6 +52,8 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(LIB) fclean
+	
+.PHONY : all clean fclean re
 	@echo Good
 
 re: fclean all
