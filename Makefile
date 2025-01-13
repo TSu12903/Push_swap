@@ -37,6 +37,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@echo ✔ Good
 
 $(LIBFT):
 	@$(MAKE) -C $(LIB) -s
@@ -52,6 +53,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(LIB) fclean
-	@echo Good Bebou
 
 re: fclean all
+
+.PHONY : all clean fclean re

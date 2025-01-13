@@ -6,7 +6,7 @@
 /*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:58:24 by tcybak            #+#    #+#             */
-/*   Updated: 2025/01/08 12:21:06 by tcybak           ###   ########.fr       */
+/*   Updated: 2025/01/13 11:14:55 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,14 @@ typedef struct s_init
 
 void	ft_free(char **str);
 long	*ft_one_free(long *tab1);
+int		ft_free_all(t_stack *stack, t_init *init);
+int		ft_free_init(t_init *init);
+int		ft_free_all_except_b(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///				Utils_algo.c		///
 //////////////////////////////////////
 
-void	calculate_moves(int stack1, int far , t_stack *stack);
 void	select_rotation_b(int stack, int far, t_init *init);
 void	check_reverse_rrr(t_init *init);
 void	check_reverse_rr(t_init *init);
@@ -70,9 +72,10 @@ void	select_rotation_a(int stack, int far, t_init *init);
 //////////////////////////////////////
 
 int		ft_verfi_twice(long *str, int num);
+int		ft_check_sign_num(char *str);
 
 ////////////////////////////////////////
-///				Main.c				///
+///				parsing1.c				///
 //////////////////////////////////////
 
 long	*ft_parsing(char **av, t_init *init);
@@ -102,6 +105,7 @@ void	ft_reverse_rotate_b(t_stack *stack, t_init init);
 //////////////////////////////////////
 
 void	ft_init(t_init	*init);
+void	ft_init_size(t_stack *stack, t_init *init);
 
 ////////////////////////////////////////
 ///				order_rrr.c			///
@@ -135,7 +139,5 @@ void	select_moves_between_b(t_stack *stack, t_init *init);
 //////////////////////////////////////
 void	ft_move_stack_a(t_stack *stack, t_init *init);
 int		ft_nb_min_stack_a(t_stack *stack, t_init init);
-//////////////////////////////////////
 
-void	print(t_stack *stack ,t_init init);
 #endif
